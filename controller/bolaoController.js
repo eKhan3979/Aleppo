@@ -2,6 +2,7 @@ const apostaDados = require('../dados/bolao/apostaDados');
 const campeonatoDados = require('../dados/bolao/campeonatoDados');
 const empresaDados = require('../dados/bolao/empresaDados');
 const jogadorDados = require('../dados/bolao/jogadorDados');
+const jogoDados = require('../dados/bolao/jogoDados');
 const pontuacaoDados = require('../dados/bolao/pontuacaoDados');
 const timeDados = require('../dados/bolao/timeDados');
 
@@ -167,12 +168,47 @@ exports.jogadorLogin = (req, res) => {
     })();   
 };
 
+exports.jogosDaRodada = (req, res) => {
+    (async () => {
+        try {
+            const dados = new jogoDados();
+            const idCampeonato = req.params.idCampeonato;
+            const rodada = req.params.rodada;
+
+            const rows = await dados.jogosDaRodada(idCampeonato, rodada);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
 exports.pontuacaoLista = (req, res) => {
     (async () => {
         try {
             const dados = new pontuacaoDados();
 
             const rows = await dados.lista();
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
+exports.rodadaAtual = (req, res) => {
+    (async () => {
+        try {
+            const dados = new jogoDados();
+            const idCampeonato = req.params.idCampeonato;
+
+            const rows = await dados.rodadaAtual(idCampeonato);
 
             res.status(200).json(rows);
         } catch (erro) {
