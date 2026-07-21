@@ -139,7 +139,7 @@ exports.jogadorGravar = (req, res) => {
             const senha = req.params.senha;
             const email = req.params.email;
 
-            const rows = await dados.jogadorGravar(idJogador, idEmpresa, nomeApelido, senha, email);
+            const rows = await dados.gravar(idJogador, idEmpresa, nomeApelido, senha, email);
 
             res.status(200).json(rows);
         } catch (erro) {
