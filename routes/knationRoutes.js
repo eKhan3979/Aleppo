@@ -11,6 +11,6 @@ router.get('/parciaisDoTreino/:idTreino', knationController.parciaisDoTreino);
 router.get('/treinoDelete/:idTreino', knationController.treinoDelete);
 router.get('/treinoEstatisticaMensal/:yyyy_mm_dd_de/:yyyy_mm_dd_ate', knationController.treinoEstatisticaMensal);
 router.get('/treinoGravar/:idTreino/:yyyy_Mm_Dd/:hh_Mm/:total/:segundosGastos/:idAmbiente/:tempAmbiente/:tempAgua', knationController.treinoGravar);
-router.get('/treinoLista/:idTreino', knationController.treinoLista);
+router.get('/treinoLista/:yyyy_mm_dd_de/:yyyy_mm_dd_ate', knationController.treinoLista);
 
 module.exports = router;
