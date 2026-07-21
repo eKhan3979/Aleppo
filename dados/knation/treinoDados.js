@@ -72,7 +72,7 @@ class treinoDados {
         let conn;
 
         try {
-            let sql = "Call u258112148_1.SpTreino_Lista('" + yyyy_mm_dd_de + "','" + yyyy_mm_dd_ate + "');";
+            let sql = "Call u258112148_1.SpTreino_Lista('" + yyyy_mm_dd_de.replaceAll('-', '/') + "','" + yyyy_mm_dd_ate.replaceAll('-', '/') + "');";
 
             conn = await conexao.getConnection();
 
