@@ -132,6 +132,7 @@ exports.jogadorGravar = (req, res) => {
     (async () => {
         try {
             const dados = new jogadorDados();
+            
             const idJogador = req.params.idJogador;
             const idEmpresa = req.params.idEmpresa;
             const nomeApelido = req.params.nomeApelido;
