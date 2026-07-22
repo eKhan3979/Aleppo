@@ -30,7 +30,7 @@ class treinoDados {
         let conn;
 
         try {
-            let sql = "Call u258112148_1.SpKEstatisticaMensal('" + yyyy_mm_dd_de + "', '" + yyyy_mm_dd_ate + "');";
+            let sql = "Call u258112148_1.SpKEstatisticaMensal('" + yyyy_mm_dd_de.replaceAll('-', '/') + "', '" + yyyy_mm_dd_ate.replaceAll('-', '/') + "');";
 
             conn = await conexao.getConnection();
 
@@ -51,7 +51,7 @@ class treinoDados {
         let conn;
 
         try {
-            let sql = "Call u258112148_1.SpKTreino_Gravar(" + idTreino + ",'" + yyyy_Mm_Dd + "','" + hh_Mm + "'," + total + "," + segundosGastos + "," + idAmbiente + "," + tempAmbiente + "," + tempAgua + ");";
+            let sql = "Call u258112148_1.SpKTreino_Gravar(" + idTreino + ",'" + yyyy_Mm_Dd.replaceAll('-', '/') + "','" + hh_Mm + "'," + total + "," + segundosGastos + "," + idAmbiente + "," + tempAmbiente + "," + tempAgua + ");";
 
             conn = await conexao.getConnection();
 
