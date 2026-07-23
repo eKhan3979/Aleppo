@@ -17,7 +17,7 @@ exports.apostaGravar = (req, res) => {
             const golsTimeCasa = req.params.golsTimeCasa;
             const golsTimeVisitante = req.params.golsTimeVisitante;
 
-            const rows = await dados.apostaGravar(idAposta, idCampeonatoJogo, idJogador, golsTimeCasa, golsTimeVisitante);
+            const rows = await dados.gravar(idAposta, idCampeonatoJogo, idJogador, golsTimeCasa, golsTimeVisitante);
 
             res.status(200).json(rows);
         } catch (erro) {
