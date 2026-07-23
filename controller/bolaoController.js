@@ -10,11 +10,14 @@ exports.apostaGravar = (req, res) => {
     (async () => {
         try {
             const dados = new apostaDados();
-            const idCampeonato = req.params.idCampeonato;
-            const idJogador = req.params.idJogador;
-            const rodada = req.params.rodada;
 
-            const rows = await dados.apostaGravar(idCampeonato, idJogador, rodada);
+            const idAposta = req.params.idAposta;
+            const idCampeonatoJogo = req.params.idCampeonatoJogo;
+            const idJogador = req.params.idJogador;
+            const golsTimeCasa = req.params.golsTimeCasa;
+            const golsTimeVisitante = req.params.golsTimeVisitante;
+
+            const rows = await dados.apostaGravar(idAposta, idCampeonatoJogo, idJogador, golsTimeCasa, golsTimeVisitante);
 
             res.status(200).json(rows);
         } catch (erro) {
