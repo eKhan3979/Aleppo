@@ -206,6 +206,25 @@ exports.pontuacaoLista = (req, res) => {
     })();   
 };
 
+exports.rankingRodada = (req, res) => {
+    (async () => {
+        try {
+            const dados = new pontuacaoDados();
+            const idEmpresa = req.params.idEmpresa;
+            const idCampeonato = req.params.idCampeonato;
+            const rodada = req.params.rodada;
+
+            const rows = await dados.rankingRodada(idEmpresa, idCampeonato, rodada);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
 exports.rodadaAtual = (req, res) => {
     (async () => {
         try {
