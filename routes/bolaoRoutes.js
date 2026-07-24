@@ -14,6 +14,7 @@ router.get('/jogadorGravar/:idJogador/:idEmpresa/:nomeApelido/:senha/:email', bo
 router.get('/jogadorLogin/:idEmpresa/:nomeApelido/:senha', bolaoController.jogadorLogin);
 router.get('/jogosDaRodada/:idCampeonato/:rodada', bolaoController.jogosDaRodada);
 router.get('/pontuacaoLista', bolaoController.pontuacaoLista);
+router.get('/rankingRodada/:idEmpresa/:idCampeonato/:rodada', bolaoController.rankingRodada);
 router.get('/rodadaAtual/:idCampeonato', bolaoController.rodadaAtual);
 router.get('/timescampeonato/:id', bolaoController.timesDoCampeonato);
 
