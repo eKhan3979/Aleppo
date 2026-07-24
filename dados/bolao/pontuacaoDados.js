@@ -29,7 +29,7 @@ class pontuacaoDados {
         let conn;
 
         try {
-            let sql = "Call u258112148_1.u258112148_1.SpBAposta_PontosRodada(" + idEmpresa + "," + idCampeonato + "," + rodada + ");";
+            let sql = "Call u258112148_1.SpBAposta_PontosRodada(" + idEmpresa + "," + idCampeonato + "," + rodada + ");";
 
             conn = await conexao.getConnection();
 
