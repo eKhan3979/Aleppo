@@ -190,6 +190,24 @@ exports.jogosDaRodada = (req, res) => {
     })();   
 };
 
+exports.meusPontos = (req, res) => {
+    (async () => {
+        try {
+            const dados = new pontuacaoDados();
+            const idJogador = req.params.idJogador;
+            const idCampeonato = req.params.idCampeonato;
+
+            const rows = await dados.meusPontos(idJogador, idCampeonato);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
 exports.pontuacaoLista = (req, res) => {
     (async () => {
         try {
