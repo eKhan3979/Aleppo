@@ -208,6 +208,25 @@ exports.meusPontos = (req, res) => {
     })();   
 };
 
+exports.pontosJogadorRodada = (req, res) => {
+    (async () => {
+        try {
+            const dados = new pontuacaoDados();
+            const idJogador = req.params.idJogador;
+            const idCampeonato = req.params.idCampeonato;
+            const rodada = req.params.rodada;
+
+            const rows = await dados.pontosJogadorRodada(idJogador, idCampeonato, rodada);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
 exports.pontuacaoLista = (req, res) => {
     (async () => {
         try {
