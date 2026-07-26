@@ -208,15 +208,16 @@ exports.meusPontos = (req, res) => {
     })();   
 };
 
-exports.pontosJogadorRodada = (req, res) => {
+exports.pontosJogador = (req, res) => {
     (async () => {
         try {
-            const dados = new pontuacaoDados();
+            const dados = new apostaDados();
+
             const idJogador = req.params.idJogador;
             const idCampeonato = req.params.idCampeonato;
             const rodada = req.params.rodada;
 
-            const rows = await dados.pontosJogadorRodada(idJogador, idCampeonato, rodada);
+            const rows = await dados.pontosJogador(idJogador, idCampeonato, rodada);
 
             res.status(200).json(rows);
         } catch (erro) {
