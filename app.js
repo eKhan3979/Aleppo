@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const bolaoRoutes = require('./routes/bolaoRoutes');
 const knationRoutes = require('./routes/knationRoutes');
 
