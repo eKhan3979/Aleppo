@@ -4,6 +4,7 @@ const knationRoutes = require('./routes/knationRoutes');
 
 const app = express();
 
+app.use(cors());
 // Permite receber JSON
 app.use(express.json());
 
