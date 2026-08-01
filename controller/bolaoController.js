@@ -47,6 +47,27 @@ exports.apostasDaRodada = (req, res) => {
     })();   
 };
 
+exports.campeonatoGravar = (req, res) => {
+    (async () => {
+        try {
+            const idCampeonato = req.params.idCampeonato;
+            const nome = req.params.nome;
+            const ano = req.params.ano;
+            const ativo = req.params.ativo;
+
+            const dados = new campeonatoDados();
+
+            const rows = await dados.gravar(idCampeonato, nome, ano, ativo);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
 exports.campeonatos = (req, res) => {
     (async () => {
         try {

@@ -5,6 +5,7 @@ const bolaoController = require('../controller/bolaoController');
 
 router.get('/apostaGravar/:idAposta/:idCampeonatoJogo/:idJogador/:golsTimeCasa/:golsTimeVisitante', bolaoController.apostaGravar);
 router.get('/apostasDaRodada/:idCampeonato/:idJogador/:rodada', bolaoController.apostasDaRodada);
+router.get('/campeonatoGravar/:idCampeonato/:nome/:ano/:ativo', bolaoController.campeonatoGravar);
 router.get('/campeonatoRodadas/:idCampeonato', bolaoController.campeonatoRodadas);
 router.get('/campeonatosDaEmpresa/:idEmpresa', bolaoController.campeonatosDaEmpresa);
 router.get('/campeonatos', bolaoController.campeonatos);
