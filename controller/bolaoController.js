@@ -325,3 +325,19 @@ exports.timesDoCampeonato = (req, res) => {
         }
     })();   
 };
+
+exports.timesLista = (req, res) => {
+    (async () => {
+        try {
+            const dados = new timeDados();
+
+            const rows = await dados.lista();
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
