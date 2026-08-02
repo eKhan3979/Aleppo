@@ -301,6 +301,28 @@ exports.rodadaAtual = (req, res) => {
     })();   
 };
 
+exports.timeGravar = (req, res) => {
+    (async () => {
+        try {
+            const dados = new timeDados();
+            const idTime = req.params.idTime;
+            const nome = req.params.nome;
+            const uf = req.params.uf;
+            const cidade = req.params.cidade;
+            const ativo = req.params.ativo;
+            const abreviatura = req.params.abreviatura;
+
+            const rows = await dados.gravar(idTime, nome, uf, cidade, ativo, abreviatura);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();
+};
+
 exports.timesDoCampeonato = (req, res) => {
     (async () => {
         try {

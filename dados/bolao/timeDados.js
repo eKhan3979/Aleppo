@@ -5,25 +5,24 @@ class timeDados {
 
     constructor() {};
 
-    async timesDoCampeonato(idCampeonato) {
+    async gravar(idTime, nome, uf, cidade, ativo, abreviatura)
+    {
         let conn;
 
         try {
-            let sql = "Call u258112148_1.SpBCampeonatoTimes(" + idCampeonato + ");";
+            let ativo1 = ativo ? 1 : 0;
+            let sql = "Call u258112148_1.SpBTimes_Gravar(" + idTime + ", '" + nome + "', '" + uf + "', '" + cidade + "', " + ativo1 + ", '" + abreviatura + "');";
 
             conn = await conexao.getConnection();
 
-            const rows = await conn.query(
-                sql
-            );
-            
+            const rows = await conn.query(sql);
+
             return rows[0];
         } catch (e) {
             throw e;
-        }        
-        finally {
+        } finally {
             if (conn) await conn.release();
-        }
+        };
     }
 
     async lista() {
@@ -46,6 +45,26 @@ class timeDados {
             if (conn) await conn.release();
         }
     }
-}
+
+    async timesDoCampeonato(idCampeonato) {
+        let conn;
+
+        try {
+            let sql = "Call u258112148_1.SpBCampeonatoTimes(" + idCampeonato + ");";
+
+            conn = await conexao.getConnection();
+
+            const rows = await conn.query(
+                sql
+            );
+            
+            return rows[0];
+        } catch (e) {
+            throw e;
+        }        
+        finally {
+            if (conn) await conn.release();
+        }
+    }}
 
 module.exports = timeDados;
