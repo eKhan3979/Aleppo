@@ -323,6 +323,24 @@ exports.timeGravar = (req, res) => {
     })();
 };
 
+exports.timesCampeonatoDisponiveis = (req, res) => {
+    (async () => {
+        try {
+            const id = req.params.id;
+
+            const dados = new timeDados();
+
+            const rows = await dados.timesCampeonatoDisponiveis(id);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
 exports.timesDoCampeonato = (req, res) => {
     (async () => {
         try {
@@ -333,13 +351,6 @@ exports.timesDoCampeonato = (req, res) => {
             const rows = await dados.timesDoCampeonato(id);
 
             res.status(200).json(rows);
-
-            /*
-            const [rows] = await db.query(
-                "CALL sp_buscar_cliente(?)",
-                [id]
-            );
-            */
         } catch (erro) {
             res.status(500).json({
                 erro: erro.message

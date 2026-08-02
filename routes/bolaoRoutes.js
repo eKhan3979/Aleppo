@@ -21,6 +21,7 @@ router.get('/rankingRodada/:idEmpresa/:idCampeonato/:rodada', bolaoController.ra
 router.get('/rodadaAtual/:idCampeonato', bolaoController.rodadaAtual);
 router.get('/timeGravar/:idTime/:nome/:uf/:cidade/:ativo/:abreviatura', bolaoController.timeGravar);
 router.get('/timescampeonato/:id', bolaoController.timesDoCampeonato);
+router.get('/timescampeonatodisponiveis/:id', bolaoController.timesCampeonatoDisponiveis);
 router.get('/timesLista', bolaoController.timesLista);
 
 module.exports = router;
