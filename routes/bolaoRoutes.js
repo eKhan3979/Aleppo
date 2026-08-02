@@ -19,6 +19,7 @@ router.get('/pontuacaoLista', bolaoController.pontuacaoLista);
 router.get('/pontosJogador/:idJogador/:idCampeonato/:rodada', bolaoController.pontosJogador);
 router.get('/rankingRodada/:idEmpresa/:idCampeonato/:rodada', bolaoController.rankingRodada);
 router.get('/rodadaAtual/:idCampeonato', bolaoController.rodadaAtual);
+router.get('/timeGravar/:idTime/:nome/:uf/:cidade/:ativo/:abreviatura', bolaoController.timeGravar);
 router.get('/timescampeonato/:id', bolaoController.timesDoCampeonato);
 router.get('/timesLista', bolaoController.timesLista);
 
