@@ -193,6 +193,26 @@ exports.jogadorLogin = (req, res) => {
     })();   
 };
 
+exports.jogoResultado = (req, res) => {
+    (async () => {
+        try {
+            const dados = new jogoDados();
+            const idCampeonatoJogo = req.params.idCampeonatoJogo;
+            const golsTimeCasa = req.params.golsTimeCasa;
+            const golsTimeVisitante = req.params.golsTimeVisitante;
+            const finalizado = req.params.finalizado;
+
+            const rows = await dados.jogoResultado(idCampeonatoJogo, golsTimeCasa, golsTimeVisitante, finalizado);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    });
+};
+
 exports.jogosDaRodada = (req, res) => {
     (async () => {
         try {
