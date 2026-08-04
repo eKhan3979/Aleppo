@@ -193,6 +193,30 @@ exports.jogadorLogin = (req, res) => {
     })();   
 };
 
+exports.jogoInsert = (req,  res) => {
+    (async () => {
+        try {
+            const dados = new jogoDados();
+
+            const idCampeonato = req.params.idCampeonato;
+            const rodada = req.params.rodada;
+            const rodadaNome = req.params.rodadaNome;
+            const yyyy_Mm_Dd = req.params.yyyy_Mm_Dd;
+            const hh_Mm = req.params.hh_Mm;
+            const idTimeCasa = req.params.idTimeCasa;
+            const idTimeVisitante = req.params.idTimeVisitante;
+
+            const id = await dados.jogoInsert(idCampeonato, rodada, rodadaNome, yyyy_Mm_Dd, hh_Mm, idTimeCasa, idTimeVisitante);
+
+            res.status(200).json(id);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();
+}
+
 exports.jogoResultado = (req, res) => {
     (async () => {
         try {

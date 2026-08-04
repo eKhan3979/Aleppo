@@ -4,6 +4,29 @@ class jogoDados {
 
     constructor() {};
 
+    async jogoInsert(idCampeonato, rodada, rodadaNome, yyyy_Mm_Dd, hh_Mm, idTimeCasa, idTimeVisitante) {
+        let conn;
+        let idRetorno = 0;
+
+        try {
+            let sql = "Call u258112148_1.SpBJogo_Insert(" + idCampeonato + "," + rodada + ",'" + rodadaNome + "','" + yyyy_Mm_Dd + "','" + hh_Mm + "'," +  idTimeCasa + "," + idTimeVisitante + ");";
+
+            conn = await conexao.getConnection();
+
+            const rows = await conn.query(
+                sql
+            );
+
+            let retorno = rows[0].Id;
+        } catch (e) {
+
+        } finally {
+            if (conn) await conn.release();
+        }
+
+        return idRetorno;
+    }
+
     async jogoResultado(id, golsCasa, golsVisitante, fim) {
         let conn;
         let retorno = 0;
