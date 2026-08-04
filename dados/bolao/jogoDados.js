@@ -4,13 +4,13 @@ class jogoDados {
 
     constructor() {};
 
-    async jogoResultado(idCampeonatoJogo, golsTimeCasa, golsTimeVisitante, finalizado) {
+    async jogoResultado(id, golsCasa, golsVisitante, fim) {
         let conn;
         let retorno = 0;
 
         try
         {
-            let sql = "Call u258112148_1.SpBJogo_Resultado(" + idCampeonatoJogo + "," + golsTimeCasa + "," + golsTimeVisitante + "," + finalizado + ");";
+            let sql = "Call u258112148_1.SpBJogo_Resultado(" + id + "," + golsCasa + "," + golsVisitante + "," + fim + ");";
 
             conn = await conexao.getConnection();
 

@@ -197,12 +197,13 @@ exports.jogoResultado = (req, res) => {
     (async () => {
         try {
             const dados = new jogoDados();
-            const idCampeonatoJogo = req.params.idCampeonatoJogo;
-            const golsTimeCasa = req.params.golsTimeCasa;
-            const golsTimeVisitante = req.params.golsTimeVisitante;
+            const id = req.params.id;
+            const golsCasa = req.params.golsCasa;
+            const golsVisitante = req.params.golsVisitante;
             const finalizado = req.params.finalizado;
+            const fim = (finalizado ? 1: 0);
 
-            const rows = await dados.jogoResultado(idCampeonatoJogo, golsTimeCasa, golsTimeVisitante, finalizado);
+            const rows = await dados.jogoResultado(id, golsCasa, golsVisitante, fim);
 
             res.status(200).json(rows);
         } catch (erro) {
@@ -210,7 +211,7 @@ exports.jogoResultado = (req, res) => {
                 erro: erro.message
             });
         }
-    });
+    })();
 };
 
 exports.jogosDaRodada = (req, res) => {
