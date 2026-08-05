@@ -206,9 +206,15 @@ exports.jogoInsert = (req,  res) => {
             const idTimeCasa = req.params.idTimeCasa;
             const idTimeVisitante = req.params.idTimeVisitante;
 
-            const id = await dados.jogoInsert(idCampeonato, rodada, rodadaNome, yyyy_Mm_Dd, hh_Mm, idTimeCasa, idTimeVisitante);
+            const rows = await dados.jogoInsert(idCampeonato, rodada, rodadaNome, yyyy_Mm_Dd, hh_Mm, idTimeCasa, idTimeVisitante);
 
-            res.status(200).json(id);
+            const retorno = JSON.stringify(rows[0], (key, value) =>
+                                typeof value === "bigint"
+                                    ? value.toString()
+                                    : value
+                                );
+            
+            res.status(200).json(retorno);
         } catch (erro) {
             res.status(500).json({
                 erro: erro.message

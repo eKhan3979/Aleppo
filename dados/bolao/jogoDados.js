@@ -6,7 +6,6 @@ class jogoDados {
 
     async jogoInsert(idCampeonato, rodada, rodadaNome, yyyy_Mm_Dd, hh_Mm, idTimeCasa, idTimeVisitante) {
         let conn;
-        let idRetorno = 0;
 
         try {
             let sql = "Call u258112148_1.SpBJogo_Insert(" + idCampeonato + "," + rodada + ",'" + rodadaNome + "','" + yyyy_Mm_Dd + "','" + hh_Mm + "'," +  idTimeCasa + "," + idTimeVisitante + ");";
@@ -17,14 +16,12 @@ class jogoDados {
                 sql
             );
 
-            let retorno = rows[0].Id;
+            return rows[0];
         } catch (e) {
 
         } finally {
             if (conn) await conn.release();
         }
-
-        return idRetorno;
     }
 
     async jogoResultado(id, golsCasa, golsVisitante, fim) {
@@ -63,7 +60,7 @@ class jogoDados {
                 sql
             );
             
-            return rows[0];
+            return rows;
         } catch (e) {
             throw e;
         }        
@@ -83,9 +80,10 @@ class jogoDados {
             const rows = await conn.query(
                 sql
             );
-            
-            return rows[0];
+console(rows)            ;
+            return 1;
         } catch (e) {
+console.log(e);
             throw e;
         }        
         finally {
