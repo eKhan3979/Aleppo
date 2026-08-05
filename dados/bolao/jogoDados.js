@@ -13,6 +13,8 @@ class jogoDados {
             conn = await conexao.getConnection();
 
             conn.execute(sql);
+
+            return 1;
         } catch (e) {
 
         } finally {

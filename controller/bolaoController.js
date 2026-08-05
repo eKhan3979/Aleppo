@@ -204,9 +204,9 @@ exports.jogoExcluir = (req, res) => {
 
             const idCampeonatoJogo = req.params.idCampeonatoJogo;
 
-            dados.jogoExcluir(idCampeonatoJogo);
+            const rows = dados.jogoExcluir(idCampeonatoJogo);
 
-            res.status(200);
+            res.status(200).json(rows);
         } catch (erro) {
             res.status(500).json({
                 erro: erro.message
