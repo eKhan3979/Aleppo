@@ -4,6 +4,22 @@ class jogoDados {
 
     constructor() {};
 
+    async jogoExcluir(idCampeonatoJogo) {
+        let conn;
+
+        try {
+            let sql = "Call u258112148_1.SpBJogo_Excluir(" + idCampeonatoJogo + ");";
+
+            conn = await conexao.getConnection();
+
+            conn.execute(sql);
+        } catch (e) {
+
+        } finally {
+            if (conn) await conn.release();
+        }
+    }
+
     async jogoInsert(idCampeonato, rodada, rodadaNome, yyyy_Mm_Dd, hh_Mm, idTimeCasa, idTimeVisitante) {
         let conn;
 

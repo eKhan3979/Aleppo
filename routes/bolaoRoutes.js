@@ -13,6 +13,7 @@ router.get('/empresas', bolaoController.empresas);
 router.get('/jogadorGet/:idEmpresa/:nomeApelido', bolaoController.jogadorGet);
 router.get('/jogadorGravar/:idJogador/:idEmpresa/:nomeApelido/:senha/:email', bolaoController.jogadorGravar);
 router.get('/jogadorLogin/:idEmpresa/:nomeApelido/:senha', bolaoController.jogadorLogin);
+router.get('/jogoExcluir/:idCampeonatoJogo', bolaoController.jogoExcluir);
 router.get('/jogoInsert/:idCampeonato/:rodada/:rodadaNome/:yyyy_Mm_Dd/:hh_Mm/:idTimeCasa/:idTimeVisitante', bolaoController.jogoInsert);
 router.get('/jogoResultado/:id/:golsCasa/:golsVisitante/:finalizado', bolaoController.jogoResultado);
 router.get('/jogosDaRodada/:idCampeonato/:rodada', bolaoController.jogosDaRodada);

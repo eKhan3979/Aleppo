@@ -197,6 +197,24 @@ exports.jogadorLogin = (req, res) => {
     })();   
 };
 
+exports.jogoExcluir = (req, res) => {
+    (async () => {
+        try {
+            const dados = new jogoDados();
+
+            const idCampeonatoJogo = req.params.idCampeonatoJogo;
+
+            dados.jogoExcluir(idCampeonatoJogo);
+
+            res.status(200);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();
+}
+
 exports.jogoInsert = (req,  res) => {
     (async () => {
         try {
@@ -211,7 +229,7 @@ exports.jogoInsert = (req,  res) => {
             const idTimeVisitante = req.params.idTimeVisitante;
 
             const rows = await dados.jogoInsert(idCampeonato, rodada, rodadaNome, yyyy_Mm_Dd, hh_Mm, idTimeCasa, idTimeVisitante);
-console.log(rows);
+
             res.status(200).json(rows);
         } catch (erro) {
             res.status(500).json({
