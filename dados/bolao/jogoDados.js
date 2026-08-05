@@ -80,10 +80,9 @@ class jogoDados {
             const rows = await conn.query(
                 sql
             );
-console(rows)            ;
+
             return 1;
         } catch (e) {
-console.log(e);
             throw e;
         }        
         finally {
