@@ -6,6 +6,10 @@ const jogoDados = require('../dados/bolao/jogoDados');
 const pontuacaoDados = require('../dados/bolao/pontuacaoDados');
 const timeDados = require('../dados/bolao/timeDados');
 
+BigInt.prototype.toJSON = function () {
+  return this.toString();
+};
+
 exports.apostaGravar = (req, res) => {
     (async () => {
         try {
@@ -208,6 +212,9 @@ exports.jogoInsert = (req,  res) => {
 
             const rows = await dados.jogoInsert(idCampeonato, rodada, rodadaNome, yyyy_Mm_Dd, hh_Mm, idTimeCasa, idTimeVisitante);
 
+            res.status(200).json(rows);
+
+            /*
             const retorno = JSON.stringify(rows[0], (key, value) =>
                                 typeof value === "bigint"
                                     ? value.toString()
@@ -215,6 +222,7 @@ exports.jogoInsert = (req,  res) => {
                                 );
             
             res.status(200).json(retorno);
+            */
         } catch (erro) {
             res.status(500).json({
                 erro: erro.message
