@@ -99,7 +99,7 @@ class jogoDados {
                 sql
             );
 
-            return 1;
+            return rows;
         } catch (e) {
             throw e;
         }        

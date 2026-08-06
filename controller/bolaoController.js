@@ -359,7 +359,7 @@ exports.rodadaAtual = (req, res) => {
 
             const rows = await dados.rodadaAtual(idCampeonato);
 
-            res.status(200).json(rows);
+            res.status(200).json(rows[0]);
         } catch (erro) {
             res.status(500).json({
                 erro: erro.message
