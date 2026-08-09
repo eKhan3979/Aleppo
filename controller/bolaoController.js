@@ -122,6 +122,25 @@ exports.campeonatoRodadas = (req, res) => {
     })();   
 };
 
+exports.campeonatoTimeInsert = (req, res) => {
+    (async () => {
+        try {
+            const idCampeonato = req.params.idCampeonato;
+            const idTime = req.params.idTime;
+
+            const dados = new campeonatoDados();
+
+            const rows = await dados.campeonatoTimeInsert(idCampeonato, idTime);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();
+};
+
 exports.empresas = (req, res) => {
     (async () => {
         try {
