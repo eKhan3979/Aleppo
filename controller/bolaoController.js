@@ -197,6 +197,23 @@ exports.jogadorGravar = (req, res) => {
     })();   
 };
 
+exports.jogadorListaEmpresa = (req, res) => {
+    (async () => {
+        try {
+            const dados = new jogadorDados();
+            const idEmpresa = req.params.idEmpresa;
+
+            const rows = await dados.listaDaEmpresa(idEmpresa);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();
+}
+
 exports.jogadorLogin = (req, res) => {
     (async () => {
         try {

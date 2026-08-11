@@ -46,6 +46,26 @@ class jogadorDados {
         }
     }
 
+    async listaDaEmpresa(idEmpresa) {
+        let conn;
+
+        try {
+            let sql = "Call u258112148_1.SpBJogador_ListaDaEmpresa(" + idEmpresa + ");";
+
+            conn = await conexao.getConnection();
+
+            const rows = await conn.query(
+                sql
+            );
+
+            return rows;
+        } catch (e) {
+            throw e;
+        } finally {
+            if (conn) await conn.release();
+        }
+    }
+
     async login(idEmpresa, nomeApelido, senha) {
         let conn;
 
