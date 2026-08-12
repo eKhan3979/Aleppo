@@ -422,6 +422,12 @@ exports.rodadaAtual = (req, res) => {
     })();   
 };
 
+exports.teste = (req, res) => {
+    (() => {
+        res.status(200).json("Teste OK !");
+    })
+}
+
 exports.timeGravar = (req, res) => {
     (async () => {
         try {
