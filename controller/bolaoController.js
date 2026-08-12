@@ -141,6 +141,24 @@ exports.campeonatoTimeInsert = (req, res) => {
     })();
 };
 
+exports.empresaRanking = (req, res) => {
+    (async () => {
+        try {
+            const dados = new apostaDados();
+            const idEmpresa = req.params.idEmpresa;
+            const idCampeonato = req.params.idCampeonato;
+
+            const rows = await dados.empresaRanking(idEmpresa, idCampeonato);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();
+};
+
 exports.empresas = (req, res) => {
     (async () => {
         try {

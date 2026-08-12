@@ -11,6 +11,7 @@ router.get('/campeonatoRodadas/:idCampeonato', bolaoController.campeonatoRodadas
 router.get('/campeonatosDaEmpresa/:idEmpresa', bolaoController.campeonatosDaEmpresa);
 router.get('/campeonatos', bolaoController.campeonatos);
 router.get('/empresas', bolaoController.empresas);
+router.get('/empresaRanking/:idEmpresa/:idCampeonato', bolaoController.empresaRanking);
 router.get('/jogadorGet/:idEmpresa/:nomeApelido', bolaoController.jogadorGet);
 router.get('/jogadorGravar/:idJogador/:idEmpresa/:nomeApelido/:senha/:email', bolaoController.jogadorGravar);
 router.get('/jogadorListaEmpresa/:idEmpresa', bolaoController.jogadorListaEmpresa);

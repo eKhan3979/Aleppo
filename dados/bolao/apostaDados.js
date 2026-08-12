@@ -26,6 +26,26 @@ class apostaDados {
         }
     }
 
+    async empresaRanking(idEmpresa, idCampeonato) {
+        let conn;
+
+        try {
+            let sql = "Call u258112148_1.SpBAposta_EmpresaRanking(" + idEmpresa + ", " + idCampeonato + ");";
+
+            conn = await conexao.getConnection();
+
+            const rows = await conn.query(
+                sql
+            );
+
+            return rows[0];
+        } catch (e) {
+            throw e;
+        } finally {
+            if (conn) await conn.release();
+        }
+    }
+
     async gravar(idAposta, idCampeonatoJogo, idJogador, golsTimeCasa, golsTimeVisitante) {
         let conn;
 
@@ -52,7 +72,6 @@ class apostaDados {
 
         try {
             let sql = "Call u258112148_1.SpBAposta_PontosRodadaJogador(" + idJogador + "," + idCampeonato + "," + rodada + ");";
-console.log(sql);            
 
             conn = await conexao.getConnection();
 
