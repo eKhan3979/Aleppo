@@ -58,7 +58,7 @@ class jogadorDados {
                 sql
             );
 
-            return rows;
+            return rows[0];
         } catch (e) {
             throw e;
         } finally {
