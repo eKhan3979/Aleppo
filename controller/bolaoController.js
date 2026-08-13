@@ -162,12 +162,14 @@ exports.empresaRanking = (req, res) => {
 exports.empresas = (req, res) => {
     (async () => {
         try {
+console.log("TESTE");
             const dados = new empresaDados();
 
             const rows = await dados.lista();
 
             res.status(200).json(rows);
         } catch (erro) {
+console.log(erro);
             res.status(500).json({
                 erro: erro.message
             });
@@ -424,7 +426,9 @@ exports.rodadaAtual = (req, res) => {
 
 exports.teste = (req, res) => {
     (() => {
-        res.status(200).json("Teste OK !");
+        res.json({
+            message: "Teste OK !"
+        });
     })
 }
 

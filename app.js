@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Rotas
-app.use('/bolao', bolaoRoutes);
+app.use('/bolao',  bolaoRoutes);
 app.use('/knation', knationRoutes);
 
 module.exports = app;

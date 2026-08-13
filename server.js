@@ -2,12 +2,12 @@ import express from 'express';
 
 const app = express();
 
-const API_TOKEN = process.env.API_TOKEN;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 function authenticate(req, res, next) {
     const token = req.headers.authorization?.replace("Bearer ", "");
 
-    if (!token || token != API_TOKEN) {
+    if (!token || token != JWT_SECRET) {
         return res.status(401).json({
             error: "Token inválido ou ausente"            
         });

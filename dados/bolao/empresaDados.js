@@ -15,7 +15,7 @@ class empresaDados {
             const rows = await conn.query(
                 sql
             );
-            
+console.log(rows[0]);
             return rows[0];
         } catch (e) {
             throw e;
