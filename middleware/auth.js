@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET;
 
 function autenticar(req, res, next) {
+console.log("kkkk");
+
     const authHeader = req.headers.authorization;
 
     if (!authHeader) {
