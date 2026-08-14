@@ -37,7 +37,7 @@ class jogadorDados {
                 sql
             );
             
-            return rows[0];
+            return rows[0].IdJogador;
         } catch (e) {
             throw e;
         }        
