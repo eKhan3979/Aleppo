@@ -1,11 +1,10 @@
+const ambienteDados = require('../dados/knation/ambienteDados');
 const parcialDados = require('../dados/knation/parcialDados');
 const treinoDados = require('../dados/knation/treinoDados');
 
 exports.ambienteLista = (req, res) => {
     (async () => {
         try {
-            const ambienteDados = require('../dados/knation/ambienteDados');
-
             const dados = new ambienteDados();
 
             const rows = await dados.lista();

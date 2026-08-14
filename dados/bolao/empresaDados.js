@@ -9,13 +9,12 @@ class empresaDados {
 
         try {
             let sql = "Call u258112148_1.SpEmpresa_Lista(1);";
-
+console.log(sql);
             conn = await conexao.getConnection();
 
             const rows = await conn.query(
                 sql
             );
-console.log(rows[0]);
             return rows[0];
         } catch (e) {
             throw e;
