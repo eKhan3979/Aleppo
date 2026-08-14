@@ -6,11 +6,9 @@ const jogoDados = require('../dados/bolao/jogoDados');
 const pontuacaoDados = require('../dados/bolao/pontuacaoDados');
 const timeDados = require('../dados/bolao/timeDados');
 
-/*
 BigInt.prototype.toJSON = function () {
   return this.toString();
 };
-*/
 
 exports.apostaGravar = (req, res) => {
     (async () => {
