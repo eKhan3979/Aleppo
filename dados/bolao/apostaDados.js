@@ -26,6 +26,27 @@ class apostaDados {
         }
     }
 
+    async apostasJogadorRodada(idJogador, idCampeonato, rodada) {
+        let conn;
+
+        try {
+            let sql = "Call u258112148_1.SpBApostas_JogadorRodada(" + idJogador + "," + idCampeonato + "," + rodada + ");";
+
+            conn = await conexao.getConnection();
+
+            const rows = await conn.query(
+                sql
+            );
+            
+            return rows[0];
+        } catch (e) {
+            throw e;
+        }        
+        finally {
+            if (conn) await conn.release();
+        }
+    }
+
     async empresaRanking(idEmpresa, idCampeonato) {
         let conn;
 

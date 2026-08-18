@@ -51,6 +51,26 @@ exports.apostasDaRodada = (req, res) => {
     })();   
 };
 
+exports.apostasJogadorRodada = (req, res) => {
+    (async () => {
+        try {
+            const dados = new apostaDados();
+
+            const idJogador = req.params.idJogador;
+            const idCampeonato = req.params.idCampeonato;
+            const rodada = req.params.rodada;
+
+            const rows = await dados.apostasJogadorRodada(idJogador, idCampeonato, rodada);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
 exports.campeonatoGravar = (req, res) => {
     (async () => {
         try {
