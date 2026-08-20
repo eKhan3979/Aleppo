@@ -7,6 +7,7 @@ const bolaoController = require('../controller/bolaoController');
 
 router.get('/apostaGravar/:idAposta/:idCampeonatoJogo/:idJogador/:golsTimeCasa/:golsTimeVisitante', bolaoController.apostaGravar);
 router.get('/apostasDaRodada/:idCampeonato/:idJogador/:rodada', bolaoController.apostasDaRodada);
+router.get('/apostasJogadorCampeonato/:idJogador/:idCampeonato', bolaoController.apostasJogadorCampeonato);
 router.get('/apostasJogadorRodada/:idJogador/:idCampeonato/:rodada', bolaoController.apostasJogadorRodada);
 router.get('/campeonatoGravar/:idCampeonato/:nome/:ano/:ativo', bolaoController.campeonatoGravar);
 router.get('/campeonatoTimeInsert/:idCampeonato/:idTime', bolaoController.campeonatoTimeInsert);
