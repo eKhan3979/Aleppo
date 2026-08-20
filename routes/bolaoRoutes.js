@@ -9,6 +9,7 @@ router.get('/apostaGravar/:idAposta/:idCampeonatoJogo/:idJogador/:golsTimeCasa/:
 router.get('/apostasDaRodada/:idCampeonato/:idJogador/:rodada', bolaoController.apostasDaRodada);
 router.get('/apostasJogadorCampeonato/:idJogador/:idCampeonato', bolaoController.apostasJogadorCampeonato);
 router.get('/apostasJogadorRodada/:idJogador/:idCampeonato/:rodada', bolaoController.apostasJogadorRodada);
+router.get('/apostasRankingCampeonato/:idEmpresa/:idCampeonato', bolaoController.apostasRankingCampeonato);
 router.get('/campeonatoGravar/:idCampeonato/:nome/:ano/:ativo', bolaoController.campeonatoGravar);
 router.get('/campeonatoTimeInsert/:idCampeonato/:idTime', bolaoController.campeonatoTimeInsert);
 router.get('/campeonatoRodadas/:idCampeonato', bolaoController.campeonatoRodadas);

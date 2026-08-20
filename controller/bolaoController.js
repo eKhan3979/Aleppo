@@ -90,6 +90,25 @@ exports.apostasJogadorRodada = (req, res) => {
     })();   
 };
 
+exports.apostasRankingCampeonato = (req, res) => {
+    (async () => {
+        try {
+            const dados = new apostaDados();
+
+            const idEmpresa = req.params.idEmpresa;
+            const idCampeonato = req.params.idCampeonato;
+
+            const rows = await dados.apostasRankingCampeonato(idEmpresa, idCampeonato);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
 exports.campeonatoGravar = (req, res) => {
     (async () => {
         try {
