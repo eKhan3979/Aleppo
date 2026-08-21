@@ -11,7 +11,7 @@ class timeDados {
 
         try {
             let ativo1 = ativo ? 1 : 0;
-            let sql = "Call u258112148_1.SpBTimes_Gravar(" + idTime + ", '" + nome + "', '" + uf + "', '" + cidade + "', " + ativo1 + ", '" + abreviatura + "/" + tipo + "');";
+            let sql = "Call u258112148_1.SpBTimes_Gravar(" + idTime + ", '" + nome + "', '" + uf + "', '" + cidade + "', " + ativo1 + ", '" + abreviatura + "'," + tipo + ");";
 
             conn = await conexao.getConnection();
 
