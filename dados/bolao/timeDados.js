@@ -5,13 +5,13 @@ class timeDados {
 
     constructor() {};
 
-    async gravar(idTime, nome, uf, cidade, ativo, abreviatura)
+    async gravar(idTime, nome, uf, cidade, ativo, abreviatura, tipo)
     {
         let conn;
 
         try {
             let ativo1 = ativo ? 1 : 0;
-            let sql = "Call u258112148_1.SpBTimes_Gravar(" + idTime + ", '" + nome + "', '" + uf + "', '" + cidade + "', " + ativo1 + ", '" + abreviatura + "');";
+            let sql = "Call u258112148_1.SpBTimes_Gravar(" + idTime + ", '" + nome + "', '" + uf + "', '" + cidade + "', " + ativo1 + ", '" + abreviatura + "/" + tipo + "');";
 
             conn = await conexao.getConnection();
 
