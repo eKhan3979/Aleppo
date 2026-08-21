@@ -31,7 +31,7 @@ router.get('/pontosJogador/:idJogador/:idCampeonato/:rodada', bolaoController.po
 router.get('/rankingRodada/:idEmpresa/:idCampeonato/:rodada', bolaoController.rankingRodada);
 router.get('/rodadaAtual/:idCampeonato', bolaoController.rodadaAtual);
 router.get('/teste', bolaoController.teste);
-router.get('/timeGravar/:idTime/:nome/:uf/:cidade/:ativo/:abreviatura', bolaoController.timeGravar);
+router.get('/timeGravar/:idTime/:nome/:uf/:cidade/:ativo/:abreviatura/:tipo', bolaoController.timeGravar);
 router.get('/timescampeonato/:id', bolaoController.timesDoCampeonato);
 router.get('/timescampeonatodisponiveis/:id', bolaoController.timesCampeonatoDisponiveis);
 router.get('/timesLista', bolaoController.timesLista);

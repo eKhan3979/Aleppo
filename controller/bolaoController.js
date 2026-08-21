@@ -499,8 +499,9 @@ exports.timeGravar = (req, res) => {
             const cidade = req.params.cidade;
             const ativo = req.params.ativo;
             const abreviatura = req.params.abreviatura;
+            const tipo = req.params.tipo;
 
-            const rows = await dados.gravar(idTime, nome, uf, cidade, ativo, abreviatura);
+            const rows = await dados.gravar(idTime, nome, uf, cidade, ativo, abreviatura, tipo);
 
             res.status(200).json(rows);
         } catch (erro) {
