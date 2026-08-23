@@ -1,5 +1,7 @@
-const conexao = require('../conexao');
-const model = require('../../model/campeonatoModel');
+import conexao from '../conexao.js';
+
+//const conexao = require('../conexao');
+//const model = require('../../model/campeonatoModel');
 
 class campeonatoDados {
 
@@ -110,4 +112,6 @@ class campeonatoDados {
     }
 }
 
-module.exports = campeonatoDados;
+//module.exports = campeonatoDados;
+
+export default campeonatoDados;

@@ -1,4 +1,4 @@
-const conexao = require('../conexao');
+import conexao from '../conexao.js';
 
 class ambienteDados {
 
@@ -45,8 +45,6 @@ class ambienteDados {
             if (conn) await conn.release();
         }
     }
-
-
 }
 
-module.exports = ambienteDados;
+export default ambienteDados;

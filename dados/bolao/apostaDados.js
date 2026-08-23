@@ -1,5 +1,4 @@
-const conexao = require('../conexao');
-const model = require('../../model/timeModel');
+import conexao from '../conexao.js';
 
 class apostaDados {
 
@@ -152,4 +151,6 @@ class apostaDados {
     }
 }
 
-module.exports = apostaDados;
+//module.exports = apostaDados;
+
+export default apostaDados;

@@ -1,4 +1,4 @@
-const conexao = require('../conexao');
+import conexao from '../conexao.js';
 
 class estiloDados {
 
@@ -24,8 +24,6 @@ class estiloDados {
             if (conn) await conn.release();
         }
     }
-
-
 }
 
-module.exports = estiloDados;
+export default estiloDados;

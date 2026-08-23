@@ -19,4 +19,5 @@ class TimeModel {
     }
 }
 
-module.exports = TimeModel;
+//module.exports = TimeModel;
+export default TimeModel;

@@ -7,4 +7,5 @@ class CampeonatoModel {
     }
 }
 
-module.exports = CampeonatoModel;
+export default CampeonatoModel;
+//module.exports = CampeonatoModel;

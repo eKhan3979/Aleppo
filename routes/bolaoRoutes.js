@@ -1,39 +1,68 @@
-const express = require('express');
+import express from 'express';
+import {
+    apostaGravar,
+    apostasDaRodada,
+    apostasJogadorCampeonato,
+    apostasJogadorRodada,
+    apostasRankingCampeonato,
+    campeonatoGravar,
+    campeonatoTimeInsert,
+    campeonatoRodadas,
+    campeonatosDaEmpresa,
+    campeonatos,
+    empresas,
+    empresaRanking,
+    jogadorGet,
+    jogadorGravar,
+    jogadorListaEmpresa,
+    jogadorLogin,
+    jogoExcluir,
+    jogoInsert,
+    jogoResultado,
+    jogosDaRodada,
+    meusPontos,
+    pontuacaoLista,
+    pontosJogador,
+    rankingRodada,
+    rodadaAtual,
+    teste,
+    timeGravar,
+    timesDoCampeonato,
+    timesCampeonatoDisponiveis,
+    timesLista
+} from '../controller/bolaoController.js';
+
 const router = express.Router();
 
-//const autenticar = require('../middleware/auth');
+router.get('/apostaGravar/:idAposta/:idCampeonatoJogo/:idJogador/:golsTimeCasa/:golsTimeVisitante', apostaGravar);
+router.get('/apostasDaRodada/:idCampeonato/:idJogador/:rodada', apostasDaRodada);
+router.get('/apostasJogadorCampeonato/:idJogador/:idCampeonato', apostasJogadorCampeonato);
+router.get('/apostasJogadorRodada/:idJogador/:idCampeonato/:rodada', apostasJogadorRodada);
+router.get('/apostasRankingCampeonato/:idEmpresa/:idCampeonato', apostasRankingCampeonato);
+router.get('/campeonatoGravar/:idCampeonato/:nome/:ano/:ativo', campeonatoGravar);
+router.get('/campeonatoTimeInsert/:idCampeonato/:idTime', campeonatoTimeInsert);
+router.get('/campeonatoRodadas/:idCampeonato', campeonatoRodadas);
+router.get('/campeonatosDaEmpresa/:idEmpresa', campeonatosDaEmpresa);
+router.get('/campeonatos', campeonatos);
+router.get('/empresas', empresas);
+router.get('/empresaRanking/:idEmpresa/:idCampeonato', empresaRanking);
+router.get('/jogadorGet/:idEmpresa/:nomeApelido', jogadorGet);
+router.get('/jogadorGravar/:idJogador/:idEmpresa/:nomeApelido/:senha/:email', jogadorGravar);
+router.get('/jogadorListaEmpresa/:idEmpresa', jogadorListaEmpresa);
+router.get('/jogadorLogin/:idEmpresa/:nomeApelido/:senha', jogadorLogin);
+router.get('/jogoExcluir/:idCampeonatoJogo', jogoExcluir);
+router.get('/jogoInsert/:idCampeonato/:rodada/:rodadaNome/:yyyy_Mm_Dd/:hh_Mm/:idTimeCasa/:idTimeVisitante', jogoInsert);
+router.get('/jogoResultado/:id/:golsCasa/:golsVisitante/:finalizado', jogoResultado);
+router.get('/jogosDaRodada/:idCampeonato/:rodada', jogosDaRodada);
+router.get('/meusPontos/:idJogador/:idCampeonato', meusPontos);
+router.get('/pontuacaoLista', pontuacaoLista);
+router.get('/pontosJogador/:idJogador/:idCampeonato/:rodada', pontosJogador);
+router.get('/rankingRodada/:idEmpresa/:idCampeonato/:rodada', rankingRodada);
+router.get('/rodadaAtual/:idCampeonato', rodadaAtual);
+router.get('/teste', teste);
+router.get('/timeGravar/:idTime/:nome/:uf/:cidade/:ativo/:abreviatura/:tipo', timeGravar);
+router.get('/timescampeonato/:id', timesDoCampeonato);
+router.get('/timescampeonatodisponiveis/:id', timesCampeonatoDisponiveis);
+router.get('/timesLista', timesLista);
 
-const bolaoController = require('../controller/bolaoController');
-
-router.get('/apostaGravar/:idAposta/:idCampeonatoJogo/:idJogador/:golsTimeCasa/:golsTimeVisitante', bolaoController.apostaGravar);
-router.get('/apostasDaRodada/:idCampeonato/:idJogador/:rodada', bolaoController.apostasDaRodada);
-router.get('/apostasJogadorCampeonato/:idJogador/:idCampeonato', bolaoController.apostasJogadorCampeonato);
-router.get('/apostasJogadorRodada/:idJogador/:idCampeonato/:rodada', bolaoController.apostasJogadorRodada);
-router.get('/apostasRankingCampeonato/:idEmpresa/:idCampeonato', bolaoController.apostasRankingCampeonato);
-router.get('/campeonatoGravar/:idCampeonato/:nome/:ano/:ativo', bolaoController.campeonatoGravar);
-router.get('/campeonatoTimeInsert/:idCampeonato/:idTime', bolaoController.campeonatoTimeInsert);
-router.get('/campeonatoRodadas/:idCampeonato', bolaoController.campeonatoRodadas);
-router.get('/campeonatosDaEmpresa/:idEmpresa', bolaoController.campeonatosDaEmpresa);
-router.get('/campeonatos', bolaoController.campeonatos);
-router.get('/empresas', bolaoController.empresas);
-router.get('/empresaRanking/:idEmpresa/:idCampeonato', bolaoController.empresaRanking);
-router.get('/jogadorGet/:idEmpresa/:nomeApelido', bolaoController.jogadorGet);
-router.get('/jogadorGravar/:idJogador/:idEmpresa/:nomeApelido/:senha/:email', bolaoController.jogadorGravar);
-router.get('/jogadorListaEmpresa/:idEmpresa', bolaoController.jogadorListaEmpresa);
-router.get('/jogadorLogin/:idEmpresa/:nomeApelido/:senha', bolaoController.jogadorLogin);
-router.get('/jogoExcluir/:idCampeonatoJogo', bolaoController.jogoExcluir);
-router.get('/jogoInsert/:idCampeonato/:rodada/:rodadaNome/:yyyy_Mm_Dd/:hh_Mm/:idTimeCasa/:idTimeVisitante', bolaoController.jogoInsert);
-router.get('/jogoResultado/:id/:golsCasa/:golsVisitante/:finalizado', bolaoController.jogoResultado);
-router.get('/jogosDaRodada/:idCampeonato/:rodada', bolaoController.jogosDaRodada);
-router.get('/meusPontos/:idJogador/:idCampeonato', bolaoController.meusPontos);
-router.get('/pontuacaoLista', bolaoController.pontuacaoLista);
-router.get('/pontosJogador/:idJogador/:idCampeonato/:rodada', bolaoController.pontosJogador);
-router.get('/rankingRodada/:idEmpresa/:idCampeonato/:rodada', bolaoController.rankingRodada);
-router.get('/rodadaAtual/:idCampeonato', bolaoController.rodadaAtual);
-router.get('/teste', bolaoController.teste);
-router.get('/timeGravar/:idTime/:nome/:uf/:cidade/:ativo/:abreviatura/:tipo', bolaoController.timeGravar);
-router.get('/timescampeonato/:id', bolaoController.timesDoCampeonato);
-router.get('/timescampeonatodisponiveis/:id', bolaoController.timesCampeonatoDisponiveis);
-router.get('/timesLista', bolaoController.timesLista);
-
-module.exports = router;
+export default router;

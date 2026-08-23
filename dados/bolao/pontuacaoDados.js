@@ -1,4 +1,4 @@
-const conexao = require('../conexao');
+import conexao from '../conexao.js';
 
 class pontuacaoDados {
 
@@ -68,4 +68,4 @@ class pontuacaoDados {
     }    
 }
 
-module.exports = pontuacaoDados;
+export default pontuacaoDados;

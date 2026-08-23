@@ -1,16 +1,27 @@
-const express = require('express');
+import express from 'express';
+
+import {
+    ambienteLista,
+    estiloLista,
+    parciaisExcluir,
+    parcialGravar,
+    parciaisDoTreino,
+    treinoDelete,
+    treinoEstatisticaMensal,
+    treinoGravar,
+    treinoLista
+} from '../controller/knationController.js';
+
 const router = express.Router();
 
-const knationController = require('../controller/knationController');
+router.get('/ambienteLista', ambienteLista);
+router.get('/estiloLista', estiloLista);
+router.get('/parciaisExcluir/:idTreino', parciaisExcluir);
+router.get('/parcialGravar/:idTreino/:idEstilo/:distancia/:segundosGastos/:repeticoes', parcialGravar);
+router.get('/parciaisDoTreino/:idTreino', parciaisDoTreino);
+router.get('/treinoDelete/:idTreino', treinoDelete);
+router.get('/treinoEstatisticaMensal/:yyyy_mm_dd_de/:yyyy_mm_dd_ate', treinoEstatisticaMensal);
+router.get('/treinoGravar/:idTreino/:yyyy_Mm_Dd/:hh_Mm/:total/:segundosGastos/:idAmbiente/:tempAmbiente/:tempAgua', treinoGravar);
+router.get('/treinoLista/:yyyy_mm_dd_de/:yyyy_mm_dd_ate', treinoLista);
 
-router.get('/ambienteLista', knationController.ambienteLista);
-router.get('/estiloLista', knationController.estiloLista);
-router.get('/parciaisExcluir/:idTreino', knationController.parciaisExcluir);
-router.get('/parcialGravar/:idTreino/:idEstilo/:distancia/:segundosGastos/:repeticoes', knationController.parcialGravar);
-router.get('/parciaisDoTreino/:idTreino', knationController.parciaisDoTreino);
-router.get('/treinoDelete/:idTreino', knationController.treinoDelete);
-router.get('/treinoEstatisticaMensal/:yyyy_mm_dd_de/:yyyy_mm_dd_ate', knationController.treinoEstatisticaMensal);
-router.get('/treinoGravar/:idTreino/:yyyy_Mm_Dd/:hh_Mm/:total/:segundosGastos/:idAmbiente/:tempAmbiente/:tempAgua', knationController.treinoGravar);
-router.get('/treinoLista/:yyyy_mm_dd_de/:yyyy_mm_dd_ate', knationController.treinoLista);
-
-module.exports = router;
+export default router;

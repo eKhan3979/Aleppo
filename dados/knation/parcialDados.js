@@ -1,4 +1,4 @@
-const conexao = require('../conexao');
+import conexao from '../conexao.js';
 
 class parcialDados {
 
@@ -68,4 +68,4 @@ class parcialDados {
     }
 }
 
-module.exports = parcialDados;
+export default parcialDados;

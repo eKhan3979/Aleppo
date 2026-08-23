@@ -1,4 +1,4 @@
-const conexao = require('../conexao');
+import conexao from '../conexao.js';
 
 class treinoDados {
 
@@ -90,4 +90,4 @@ class treinoDados {
     }
 }
 
-module.exports = treinoDados;
+export default treinoDados;

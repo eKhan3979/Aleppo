@@ -3,22 +3,13 @@ import 'dotenv/config';
 import mariadb from 'mariadb';
 import jwt from 'jsonwebtoken';
 
+import bolaoRoutes from './routes/bolaoRoutes.js';
+import knationRoutes from './routes/knationRoutes.js';
+
 import { JogadorLoginDto } from './model/jogadorLoginDto.js';
-
-
 
 const app = express();
 
-const pool = mariadb.createPool({
-    host: "localhost",
-    user: "u258112148_Khan",
-    password: "0W*_3%#k7",
-    database: "u258112148_1",
-    port: 3306,
-    connectTimeout: 30000
-});
-
-/*
 const pool = mariadb.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -27,24 +18,13 @@ const pool = mariadb.createPool({
     port: process.env.DB_PORT,
     connectTimeout: process.env.DB_CONNECTTIMEOUT
 });
-*/
 
 app.use(express.json());
 
-/*
-app.post('/login', (req, res) => {
-    const { email, senha } = req.body;
+app.use("/bolao", bolaoRoutes);
+app.use("/knation", knationRoutes);
 
-console.log(email);
-
-        return res.status(400).json({
-            success: false,
-            message: 'E-mail e senha são obrigatórios'
-        });
-});
-*/
-
-app.post('/login', async (req, res) => {
+app.post('/bolao/login', async (req, res) => {
     const { email, senha } = req.body;
     
     if (!email || !senha) {

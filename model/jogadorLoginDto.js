@@ -26,3 +26,5 @@ export class JogadorLoginDto {
     }
     */
 }
+
+export default JogadorLoginDto;

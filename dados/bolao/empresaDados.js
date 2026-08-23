@@ -1,4 +1,4 @@
-const conexao = require('../conexao');
+import conexao from '../conexao.js';
 
 class empresaDados {
 
@@ -9,7 +9,7 @@ class empresaDados {
 
         try {
             let sql = "Call u258112148_1.SpEmpresa_Lista(1);";
-console.log(sql);
+
             conn = await conexao.getConnection();
 
             const rows = await conn.query(
@@ -25,4 +25,4 @@ console.log(sql);
     }
 }
 
-module.exports = empresaDados;
+export default empresaDados;

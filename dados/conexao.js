@@ -1,12 +1,14 @@
-const mariadb = require('mariadb');
+import mariadb from 'mariadb';
+//const mariadb = require('mariadb');
 
-const pool = mariadb.createPool({
+const conexao = mariadb.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     port: process.env.DB_PORT,
-    connectTimeout: process.env.CONNECTTIMEOUT
+    connectTimeout: process.env.DB_CONNECTTIMEOUT
 });
 
-module.exports = pool;
+//module.exports = pool;
+export default conexao;

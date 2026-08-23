@@ -1,16 +1,16 @@
-const apostaDados = require('../dados/bolao/apostaDados');
-const campeonatoDados = require('../dados/bolao/campeonatoDados');
-const empresaDados = require('../dados/bolao/empresaDados');
-const jogadorDados = require('../dados/bolao/jogadorDados');
-const jogoDados = require('../dados/bolao/jogoDados');
-const pontuacaoDados = require('../dados/bolao/pontuacaoDados');
-const timeDados = require('../dados/bolao/timeDados');
+import apostaDados from '../dados/bolao/apostaDados.js';
+import campeonatoDados from '../dados/bolao/campeonatoDados.js'; 
+import empresaDados from '../dados/bolao/empresaDados.js';
+import jogadorDados from '../dados/bolao/jogadorDados.js';
+import jogoDados from '../dados/bolao/jogadorDados.js';
+import pontuacaoDados from '../dados/bolao/pontuacaoDados.js';
+import timeDados from '../dados/bolao/timeDados.js';
 
 BigInt.prototype.toJSON = function () {
   return this.toString();
 };
 
-exports.apostaGravar = (req, res) => {
+export const apostaGravar = (req, res) => {
     (async () => {
         try {
             const dados = new apostaDados();
@@ -32,7 +32,7 @@ exports.apostaGravar = (req, res) => {
     })();   
 };
 
-exports.apostasDaRodada = (req, res) => {
+export const apostasDaRodada = (req, res) => {
     (async () => {
         try {
             const dados = new apostaDados();
@@ -51,7 +51,7 @@ exports.apostasDaRodada = (req, res) => {
     })();   
 };
 
-exports.apostasJogadorCampeonato = (req, res) => {
+export const apostasJogadorCampeonato = (req, res) => {
     (async () => {
         try {
             const dados = new apostaDados();
@@ -70,7 +70,7 @@ exports.apostasJogadorCampeonato = (req, res) => {
     })();   
 };
 
-exports.apostasJogadorRodada = (req, res) => {
+export const apostasJogadorRodada = (req, res) => {
     (async () => {
         try {
             const dados = new apostaDados();
@@ -90,7 +90,7 @@ exports.apostasJogadorRodada = (req, res) => {
     })();   
 };
 
-exports.apostasRankingCampeonato = (req, res) => {
+export const apostasRankingCampeonato = (req, res) => {
     (async () => {
         try {
             const dados = new apostaDados();
@@ -109,7 +109,7 @@ exports.apostasRankingCampeonato = (req, res) => {
     })();   
 };
 
-exports.campeonatoGravar = (req, res) => {
+export const campeonatoGravar = (req, res) => {
     (async () => {
         try {
             const idCampeonato = req.params.idCampeonato;
@@ -130,9 +130,10 @@ exports.campeonatoGravar = (req, res) => {
     })();   
 };
 
-exports.campeonatos = (req, res) => {
+export const campeonatos = (req, res) => {
     (async () => {
         try {
+            console.log("112");
             const dados = new campeonatoDados();
 
             const rows = await dados.lista();
@@ -146,7 +147,7 @@ exports.campeonatos = (req, res) => {
     })();   
 };
 
-exports.campeonatosDaEmpresa = (req, res) => {
+export const campeonatosDaEmpresa = (req, res) => {
     (async () => {
         try {
             const idEmpresa = req.params.idEmpresa;
@@ -163,7 +164,7 @@ exports.campeonatosDaEmpresa = (req, res) => {
     })();   
 };
 
-exports.campeonatoRodadas = (req, res) => {
+export const campeonatoRodadas = (req, res) => {
     (async () => {
         try {
             const idCampeonato = req.params.idCampeonato;
@@ -180,7 +181,7 @@ exports.campeonatoRodadas = (req, res) => {
     })();   
 };
 
-exports.campeonatoTimeInsert = (req, res) => {
+export const campeonatoTimeInsert = (req, res) => {
     (async () => {
         try {
             const idCampeonato = req.params.idCampeonato;
@@ -199,7 +200,7 @@ exports.campeonatoTimeInsert = (req, res) => {
     })();
 };
 
-exports.empresaRanking = (req, res) => {
+export const empresaRanking = (req, res) => {
     (async () => {
         try {
             const dados = new apostaDados();
@@ -217,7 +218,7 @@ exports.empresaRanking = (req, res) => {
     })();
 };
 
-exports.empresas = (req, res) => {
+export const empresas = (req, res) => {
     (async () => {
         try {
             const dados = new empresaDados();
@@ -233,7 +234,7 @@ exports.empresas = (req, res) => {
     })();   
 };
 
-exports.jogadorGet = (req, res) => {
+export const jogadorGet = (req, res) => {
     (async () => {
         try {
             const dados = new jogadorDados();
@@ -251,7 +252,7 @@ exports.jogadorGet = (req, res) => {
     })();   
 };
 
-exports.jogadorGravar = (req, res) => {
+export const jogadorGravar = (req, res) => {
     (async () => {
         try {
             const dados = new jogadorDados();
@@ -273,7 +274,7 @@ exports.jogadorGravar = (req, res) => {
     })();   
 };
 
-exports.jogadorListaEmpresa = (req, res) => {
+export const jogadorListaEmpresa = (req, res) => {
     (async () => {
         try {
             const dados = new jogadorDados();
@@ -290,7 +291,7 @@ exports.jogadorListaEmpresa = (req, res) => {
     })();
 }
 
-exports.jogadorLogin = (req, res) => {
+export const jogadorLogin = (req, res) => {
     (async () => {
         try {
             const dados = new jogadorDados();
@@ -309,7 +310,7 @@ exports.jogadorLogin = (req, res) => {
     })();   
 };
 
-exports.jogoExcluir = (req, res) => {
+export const jogoExcluir = (req, res) => {
     (async () => {
         try {
             const dados = new jogoDados();
@@ -327,7 +328,7 @@ exports.jogoExcluir = (req, res) => {
     })();
 }
 
-exports.jogoInsert = (req,  res) => {
+export const jogoInsert = (req,  res) => {
     (async () => {
         try {
             const dados = new jogoDados();
@@ -351,7 +352,7 @@ exports.jogoInsert = (req,  res) => {
     })();
 }
 
-exports.jogoResultado = (req, res) => {
+export const jogoResultado = (req, res) => {
     (async () => {
         try {
             const dados = new jogoDados();
@@ -372,7 +373,7 @@ exports.jogoResultado = (req, res) => {
     })();
 };
 
-exports.jogosDaRodada = (req, res) => {
+export const jogosDaRodada = (req, res) => {
     (async () => {
         try {
             const dados = new jogoDados();
@@ -390,7 +391,7 @@ exports.jogosDaRodada = (req, res) => {
     })();   
 };
 
-exports.login = (req, res) => {
+export const login = (req, res) => {
     (async () => {
         try {
             const dados = new jogadorDados();
@@ -422,7 +423,7 @@ export async function loginToken(email, senha) {
     }
 }
 
-exports.meusPontos = (req, res) => {
+export const meusPontos = (req, res) => {
     (async () => {
         try {
             const dados = new pontuacaoDados();
@@ -440,7 +441,7 @@ exports.meusPontos = (req, res) => {
     })();   
 };
 
-exports.pontosJogador = (req, res) => {
+export const pontosJogador = (req, res) => {
     (async () => {
         try {
             const dados = new apostaDados();
@@ -460,7 +461,7 @@ exports.pontosJogador = (req, res) => {
     })();   
 };
 
-exports.pontuacaoLista = (req, res) => {
+export const pontuacaoLista = (req, res) => {
     (async () => {
         try {
             const dados = new pontuacaoDados();
@@ -476,7 +477,7 @@ exports.pontuacaoLista = (req, res) => {
     })();   
 };
 
-exports.rankingRodada = (req, res) => {
+export const rankingRodada = (req, res) => {
     (async () => {
         try {
             const dados = new pontuacaoDados();
@@ -495,7 +496,7 @@ exports.rankingRodada = (req, res) => {
     })();   
 };
 
-exports.rodadaAtual = (req, res) => {
+export const rodadaAtual = (req, res) => {
     (async () => {
         try {
             const dados = new jogoDados();
@@ -512,7 +513,7 @@ exports.rodadaAtual = (req, res) => {
     })();   
 };
 
-exports.teste = (req, res) => {
+export const teste = (req, res) => {
     (() => {
         res.json({
             message: "Teste OK !"
@@ -520,7 +521,7 @@ exports.teste = (req, res) => {
     })
 }
 
-exports.timeGravar = (req, res) => {
+export const timeGravar = (req, res) => {
     (async () => {
         try {
             const dados = new timeDados();
@@ -543,7 +544,7 @@ exports.timeGravar = (req, res) => {
     })();
 };
 
-exports.timesCampeonatoDisponiveis = (req, res) => {
+export const timesCampeonatoDisponiveis = (req, res) => {
     (async () => {
         try {
             const id = req.params.id;
@@ -561,7 +562,7 @@ exports.timesCampeonatoDisponiveis = (req, res) => {
     })();   
 };
 
-exports.timesDoCampeonato = (req, res) => {
+export const timesDoCampeonato = (req, res) => {
     (async () => {
         try {
             const id = req.params.id;
@@ -579,7 +580,7 @@ exports.timesDoCampeonato = (req, res) => {
     })();   
 };
 
-exports.timesLista = (req, res) => {
+export const timesLista = (req, res) => {
     (async () => {
         try {
             const dados = new timeDados();

@@ -1,8 +1,8 @@
-const ambienteDados = require('../dados/knation/ambienteDados');
-const parcialDados = require('../dados/knation/parcialDados');
-const treinoDados = require('../dados/knation/treinoDados');
+import ambienteDados from '../dados/knation/ambienteDados.js';
+import parcialDados from '../dados/knation/parcialDados.js';
+import treinoDados from '../dados/knation/treinoDados.js';
 
-exports.ambienteLista = (req, res) => {
+export const ambienteLista = (req, res) => {
     (async () => {
         try {
             const dados = new ambienteDados();
@@ -18,7 +18,7 @@ exports.ambienteLista = (req, res) => {
     })();   
 };
 
-exports.estiloLista = (req, res) => {
+export const estiloLista = (req, res) => {
     (async () => {
         try {
             const estiloDados = require('../dados/knation/estiloDados');
@@ -36,7 +36,7 @@ exports.estiloLista = (req, res) => {
     })();   
 };
 
-exports.parciaisExcluir = (req, res) => {
+export const parciaisExcluir = (req, res) => {
     (async () => {
         try {
             const dados = new parcialDados();
@@ -53,7 +53,7 @@ exports.parciaisExcluir = (req, res) => {
     })();   
 };
 
-exports.parcialGravar = (req, res) => {
+export const parcialGravar = (req, res) => {
     (async () => {
         try {
             const dados = new parcialDados();
@@ -75,7 +75,7 @@ exports.parcialGravar = (req, res) => {
     })();   
 };
 
-exports.parciaisDoTreino = (req, res) => {
+export const parciaisDoTreino = (req, res) => {
     (async () => {
         try {
             const dados = new parcialDados();
@@ -93,7 +93,7 @@ exports.parciaisDoTreino = (req, res) => {
     })();   
 };
 
-exports.treinoDelete = (req, res) => {
+export const treinoDelete = (req, res) => {
     (async () => {
         try {
             const dados = new treinoDados();
@@ -111,7 +111,7 @@ exports.treinoDelete = (req, res) => {
     })();   
 };
 
-exports.treinoEstatisticaMensal = (req, res) => {
+export const treinoEstatisticaMensal = (req, res) => {
     (async () => {
         try {
             const dados = new treinoDados();
@@ -130,7 +130,7 @@ exports.treinoEstatisticaMensal = (req, res) => {
     })();   
 };
 
-exports.treinoGravar = (req, res) => {
+export const treinoGravar = (req, res) => {
     (async () => {
         try {
             const dados = new treinoDados();
@@ -155,7 +155,7 @@ exports.treinoGravar = (req, res) => {
     })();   
 };
 
-exports.treinoLista = (req, res) => {
+export const treinoLista = (req, res) => {
     (async () => {
         try {
             const dados = new treinoDados();
