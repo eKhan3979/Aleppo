@@ -1,5 +1,4 @@
 import mariadb from 'mariadb';
-//const mariadb = require('mariadb');
 
 const conexao = mariadb.createPool({
     host: process.env.DB_HOST,
@@ -10,5 +9,4 @@ const conexao = mariadb.createPool({
     connectTimeout: Number(process.env.DB_CONNECTTIMEOUT)
 });
 
-//module.exports = pool;
 export default conexao;
