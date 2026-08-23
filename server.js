@@ -15,8 +15,8 @@ const pool = mariadb.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    port: process.env.DB_PORT,
-    connectTimeout: process.env.DB_CONNECTTIMEOUT
+    port: Number(process.env.DB_PORT),
+    connectTimeout: Number(process.env.DB_CONNECTTIMEOUT)
 });
 
 app.use(express.json());
