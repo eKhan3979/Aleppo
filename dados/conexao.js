@@ -5,8 +5,8 @@ const conexao = mariadb.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    port: Number(process.env.DB_PORT),
-    connectTimeout: Number(process.env.DB_CONNECTTIMEOUT)
+    port: Number("3306"),
+    connectTimeout: Number("30000")
 });
 
 export default conexao;

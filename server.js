@@ -11,10 +11,10 @@ import { JogadorLoginDto } from './model/jogadorLoginDto.js';
 const app = express();
 
 const pool = mariadb.createPool({
-    host: "localhost",
-    user: "u258112148_Khan",
-    password: "0W*_3%#k7",
-    database: "u258112148_1",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
     port: Number("3306"),
     connectTimeout: Number("30000")
 });
