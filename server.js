@@ -62,6 +62,8 @@ app.post('/login', async (req, res) => {
                     jogadorLogin.email = rows[0][0].email;
                     jogadorLogin.Ativo = rows[0][0].Ativo;
 
+                    conn.destroy();
+                    /*
                     const token = jwt.sign(
                                     { IdJogador: jogadorLogin.IdJogador },
                                       process.env.JWT_SECRET,
@@ -69,6 +71,7 @@ app.post('/login', async (req, res) => {
                                 );
 
                     jogadorLogin.Token = token;
+                    */
 
                     res.status(200).json(jogadorLogin);
                 } else {
