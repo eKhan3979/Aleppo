@@ -226,7 +226,6 @@ exports.empresas = (req, res) => {
 
             res.status(200).json(rows);
         } catch (erro) {
-console.log(erro);
             res.status(500).json({
                 erro: erro.message
             });
@@ -390,6 +389,38 @@ exports.jogosDaRodada = (req, res) => {
         }
     })();   
 };
+
+exports.login = (req, res) => {
+    (async () => {
+        try {
+            const dados = new jogadorDados();
+            const email = req.params.email;
+            const senha = req.params.senha;
+
+            const rows = await dados.loginToken(email, senha);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();
+};
+
+export async function loginToken(email, senha) {
+    try {
+        const dados = new jogadorDados();
+
+        const rows = await dados.loginToken(email, senha);
+
+        res.status(200).json(rows);
+    } catch (erro) {
+        res.status(500).json({
+            erro: erro.message
+        });
+    }
+}
 
 exports.meusPontos = (req, res) => {
     (async () => {

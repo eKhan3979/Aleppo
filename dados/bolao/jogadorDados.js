@@ -66,6 +66,27 @@ class jogadorDados {
         }
     }
 
+    async loginToken(email, senha) {
+        let conn;
+
+        try {
+            let sql = "Call u258112148_1.SpBLogin('" + email + "','" + senha + "');";
+
+            conn = await conexao.getConnection();
+
+            const rows = await conn.query(
+                sql
+            );
+
+            return rows[0];
+        } catch (e) {
+            throw e;
+        }        
+        finally {
+            if (conn) await conn.release();
+        }
+    }
+
     async login(idEmpresa, nomeApelido, senha) {
         let conn;
 

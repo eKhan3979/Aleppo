@@ -1,39 +1,75 @@
-/*
 import express from 'express';
+import 'dotenv/config';
+import mariadb from 'mariadb';
+
+import { JogadorLoginDto } from './model/jogadorLoginDto.js';
 
 const app = express();
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const pool = mariadb.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    port: process.env.DB_PORT,
+    connectTimeout: process.env.DB_CONNECTTIMEOUT
+});
 
-function authenticate(req, res, next) {
-    const token = req.headers.authorization?.replace("Bearer ", "");
+app.use(express.json());
 
-    if (!token || token != JWT_SECRET) {
-        return res.status(401).json({
-            error: "Token inválido ou ausente"            
+app.post('/login', async (req, res) => {
+    const { email, senha } = req.body;
+    
+    if (!email || !senha) {
+        return res.status(400).json({
+            success: false,
+            message: 'E-mail e senha são obrigatórios'
         });
+    } else {
+        (async () => {
+            try {
+                let conn;
+                let sql = "Call u258112148_1.SpBLogin('" + email + "','" + senha + "');";
+
+                conn = await pool.getConnection();
+
+                const rows = await conn.query(
+                    sql
+                );
+
+                if (rows[0][0] != undefined) {
+                    let jogadorLogin = new JogadorLoginDto();
+
+                    jogadorLogin.IdJogador = rows[0][0].IdJogador;
+                    jogadorLogin.IdEmpresa = rows[0][0].IdEmpresa;
+                    jogadorLogin.NomeApelido = rows[0][0].NomeApelido;
+                    jogadorLogin.email = rows[0][0].email;
+                    jogadorLogin.Ativo = rows[0][0].Ativo;
+
+                    const token = jwt.sign(
+                                    { IdJogador: jogadorLogin.IdJogador },
+                                      process.env.JWT_SECRET,
+                                    { expiresIn: '1h' }
+                                );
+
+                    jogadorLogin.Token = token;
+                    
+                    res.status(200).json(jogadorLogin);
+                } else {
+                    return res.status(401).json({
+                        success: false,
+                        message: 'E-mail/senha não cadastrado !'
+                    });
+                }
+            } catch (erro) {
+                res.status(500).json({
+                    erro: erro.message
+                });
+            }
+        })();
     }
-
-    next();
-}
-
-app.get('/api/hello', authenticate, (req, res) => {
-    res.json({
-        message: "API funcionando !"
-    });
 });
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-    console.log(`API rodando na porta ${PORT}`);
-});
-*/
-
-const app = require('./app');
-
-const PORT = 3000;
-
-app.listen(PORT, () => {
-    console.log(`Servidor iniciado na porta ${PORT}`);
+app.listen(3000, () => {
+    console.log("API rodando no http://localhost:3000");
 });
