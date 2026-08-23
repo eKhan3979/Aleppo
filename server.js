@@ -1,8 +1,11 @@
 import express from 'express';
 import 'dotenv/config';
 import mariadb from 'mariadb';
+import jwt from 'jsonwebtoken';
 
 import { JogadorLoginDto } from './model/jogadorLoginDto.js';
+
+
 
 const app = express();
 
@@ -16,6 +19,19 @@ const pool = mariadb.createPool({
 });
 
 app.use(express.json());
+
+/*
+app.post('/login', (req, res) => {
+    const { email, senha } = req.body;
+
+console.log(email);
+
+        return res.status(400).json({
+            success: false,
+            message: 'E-mail e senha são obrigatórios'
+        });
+});
+*/
 
 app.post('/login', async (req, res) => {
     const { email, senha } = req.body;
@@ -53,7 +69,7 @@ app.post('/login', async (req, res) => {
                                 );
 
                     jogadorLogin.Token = token;
-                    
+
                     res.status(200).json(jogadorLogin);
                 } else {
                     return res.status(401).json({
