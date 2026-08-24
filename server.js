@@ -23,6 +23,7 @@ const pool = mariadb.createPool({
 const allowOrigins = [
     'https://olive-sparrow-185968.hostingersite.com',
     'http://localhost:3000',
+    'http://localhost:4200',
     'http://localhost',
     'https://localhost'
 ];
@@ -30,7 +31,8 @@ const allowOrigins = [
 app.use(cors({
     origin: allowOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']    
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 }));
 
 app.options('*', cors());
