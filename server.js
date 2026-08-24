@@ -20,10 +20,16 @@ const pool = mariadb.createPool({
     connectTimeout: Number("30000")
 });
 
-app.use(express.json());
+const allowOrigins = [
+    'https://olive-sparrow-185968.hostingersite.com',
+    'http://localhost:3000'
+];
+
 app.use(cors({
-    origin: "https://olive-sparrow-185968.hostingersite.com"
+    origin: allowOrigins
 }));
+
+app.use(express.json());
 
 app.use("/bolao", bolaoRoutes);
 app.use("/knation", knationRoutes);
