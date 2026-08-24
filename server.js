@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import 'dotenv/config';
 import mariadb from 'mariadb';
@@ -20,6 +21,9 @@ const pool = mariadb.createPool({
 });
 
 app.use(express.json());
+app.use(cors({
+    origin: "https://olive-sparrow-185968.hostingersite.com"
+}));
 
 app.use("/bolao", bolaoRoutes);
 app.use("/knation", knationRoutes);
