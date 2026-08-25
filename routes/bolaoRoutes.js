@@ -29,7 +29,8 @@ import {
     timeGravar,
     timesDoCampeonato,
     timesCampeonatoDisponiveis,
-    timesLista
+    timesLista,
+    loginToken
 } from '../controller/bolaoController.js';
 
 const router = express.Router();
@@ -54,6 +55,7 @@ router.get('/jogoExcluir/:idCampeonatoJogo', jogoExcluir);
 router.get('/jogoInsert/:idCampeonato/:rodada/:rodadaNome/:yyyy_Mm_Dd/:hh_Mm/:idTimeCasa/:idTimeVisitante', jogoInsert);
 router.get('/jogoResultado/:id/:golsCasa/:golsVisitante/:finalizado', jogoResultado);
 router.get('/jogosDaRodada/:idCampeonato/:rodada', jogosDaRodada);
+router.get('/loginToken/:email/:senha', loginToken);
 router.get('/meusPontos/:idJogador/:idCampeonato', meusPontos);
 router.get('/pontuacaoLista', pontuacaoLista);
 router.get('/pontosJogador/:idJogador/:idCampeonato/:rodada', pontosJogador);

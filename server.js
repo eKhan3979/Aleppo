@@ -45,6 +45,7 @@ app.use(express.json());
 app.use("/bolao", bolaoRoutes);
 app.use("/knation", knationRoutes);
 
+/*
 app.post('/bolao/login', async (req, res) => {
     const { email, senha } = req.body;
     
@@ -64,8 +65,9 @@ app.post('/bolao/login', async (req, res) => {
                 const rows = await conn.query(
                     sql
                 );
-				
+console.log("retorno do Login 1");
 console.log(rows);				
+console.log("retorno do Login 2");
 
                 if (rows[0][0] != undefined) {
                     let jogadorLogin = new JogadorLoginDto();
@@ -77,15 +79,6 @@ console.log(rows);
                     jogadorLogin.Ativo = rows[0][0].Ativo;
 
                     conn.destroy();
-                    /*
-                    const token = jwt.sign(
-                                    { IdJogador: jogadorLogin.IdJogador },
-                                      process.env.JWT_SECRET,
-                                    { expiresIn: '1h' }
-                                );
-
-                    jogadorLogin.Token = token;
-                    */
 
                     res.status(200).json(jogadorLogin);
                 } else {
@@ -102,6 +95,7 @@ console.log(rows);
         })();
     }
 });
+*/
 
 app.listen(3000, () => {
     console.log("API rodando no http://localhost:3000");
