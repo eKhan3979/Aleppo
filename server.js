@@ -64,6 +64,8 @@ app.post('/bolao/login', async (req, res) => {
                 const rows = await conn.query(
                     sql
                 );
+				
+console.log(rows);				
 
                 if (rows[0][0] != undefined) {
                     let jogadorLogin = new JogadorLoginDto();
