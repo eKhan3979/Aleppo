@@ -21,7 +21,7 @@ const pool = mariadb.createPool({
 });
 
 const allowOrigins = [
-    'https://olive-sparrow-185968.hostingersite.com',
+    'https://lightcyan-echidna-380972.hostingersite.com',
     'http://localhost:3000',
     'http://localhost:4200',
     'http://localhost',
