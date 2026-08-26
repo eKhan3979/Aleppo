@@ -206,7 +206,7 @@ export const empresaGet = (req, res) => {
             const dados = new empresaDados();
             const idEmpresa = req.params.idEmpresa;
 
-            const rows = await dados.empresaGet(idEmpresa);
+            const rows = await dados.get(idEmpresa);
 
             res.status(200).json(rows);
         } catch (erro) {
