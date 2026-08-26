@@ -46,19 +46,6 @@ app.use(express.json());
 app.use("/bolao", bolaoRoutes);
 app.use("/knation", knationRoutes);
 
-app.post('/bolao/loginPost', (req, res) => {
-    console.log("POst");
-    console.log(req.body);
-    
-    const { email, senha } = req.body;
-
-    console.log(email);
-    confirm.log(senha);
-
-    
-
-});
-
 /*
 app.post('/bolao/login', async (req, res) => {
     const { email, senha } = req.body;
