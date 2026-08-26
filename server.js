@@ -1,8 +1,7 @@
 import cors from 'cors';
-import express from 'express';
 import 'dotenv/config';
 import mariadb from 'mariadb';
-import express, { Request, Response } from 'express';
+import express from 'express';
 import jwt from 'jsonwebtoken';
 
 import bolaoRoutes from './routes/bolaoRoutes.js';
