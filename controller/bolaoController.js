@@ -200,6 +200,23 @@ export const campeonatoTimeInsert = (req, res) => {
     })();
 };
 
+export const empresaGet = (req, res) => {
+    (async() => {
+        try {
+            const dados = new empresaDados();
+            const idEmpresa = req.params.idEmpresa;
+
+            const rows = await dados.empresaGet(idEmpresa);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();
+}
+
 export const empresaRanking = (req, res) => {
     (async () => {
         try {

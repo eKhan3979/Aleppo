@@ -10,6 +10,7 @@ import {
     campeonatoRodadas,
     campeonatosDaEmpresa,
     campeonatos,
+    empresaGet,
     empresas,
     empresaRanking,
     jogadorGet,
@@ -20,6 +21,7 @@ import {
     jogoInsert,
     jogoResultado,
     jogosDaRodada,
+    loginToken,
     meusPontos,
     pontuacaoLista,
     pontosJogador,
@@ -29,8 +31,7 @@ import {
     timeGravar,
     timesDoCampeonato,
     timesCampeonatoDisponiveis,
-    timesLista,
-    loginToken
+    timesLista    
 } from '../controller/bolaoController.js';
 
 const router = express.Router();
@@ -46,6 +47,7 @@ router.get('/campeonatoRodadas/:idCampeonato', campeonatoRodadas);
 router.get('/campeonatosDaEmpresa/:idEmpresa', campeonatosDaEmpresa);
 router.get('/campeonatos', campeonatos);
 router.get('/empresas', empresas);
+router.get('/empresaGet/:idEmpresa', empresaGet);
 router.get('/empresaRanking/:idEmpresa/:idCampeonato', empresaRanking);
 router.get('/jogadorGet/:idEmpresa/:nomeApelido', jogadorGet);
 router.get('/jogadorGravar/:idJogador/:idEmpresa/:nomeApelido/:senha/:email', jogadorGravar);
