@@ -411,24 +411,21 @@ export const login = (req, res) => {
 
 export const loginToken = (req, res) => {
     (async () => {
-        console.log(req.params.email);
-        /*
         try {
             const dados = new jogadorDados();
+
             const email = req.params.email;
             const senha = req.params.senha;
-console.log(email);
-console.log(senha);
+
             const rows = await dados.loginToken(email, senha);
-console.log(rows);
+
             res.status(200).json(rows);
         } catch (erro) {
-        res.status(500).json({
-            erro: erro.message
-        });
+            res.status(500).json({
+                erro: erro.message
+            });
         }
-        */
-    })
+    })();
 };
 
 export const meusPontos = (req, res) => {
