@@ -2,12 +2,14 @@ import cors from 'cors';
 import express from 'express';
 import 'dotenv/config';
 import mariadb from 'mariadb';
+import express, { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 
 import bolaoRoutes from './routes/bolaoRoutes.js';
 import knationRoutes from './routes/knationRoutes.js';
 
 import { JogadorLoginDto } from './model/jogadorLoginDto.js';
+import { loginToken } from './controller/bolaoController.js';
 
 const app = express();
 
@@ -44,6 +46,34 @@ app.use(express.json());
 
 app.use("/bolao", bolaoRoutes);
 app.use("/knation", knationRoutes);
+
+app.post('/bolao/loginPost', (req, res) => {
+    const { email, senha } = req.body;
+
+    console.log(email);
+    confirm.log(senha);
+
+    if (!email || !senha) {
+        return res.status(400).json({
+            success: false,
+            message: 'E-mail e senha são obrigatórios'
+        });
+    } else {
+        (async () => {
+            try {
+                const retorno = loginToken(email, senha);
+
+                console.log(retorno);
+
+                res.status(200).json(retorno);
+            } catch (erro) {
+                res.status(500).json({
+                    erro: erro.message
+                });
+            }
+        })();
+    }
+});
 
 /*
 app.post('/bolao/login', async (req, res) => {
