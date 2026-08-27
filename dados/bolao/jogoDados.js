@@ -77,7 +77,7 @@ class jogoDados {
             const rows = await conn.query(
                 sql
             );
-            
+
             return rows;
         } catch (e) {
             throw e;

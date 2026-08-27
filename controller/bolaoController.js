@@ -2,7 +2,7 @@ import apostaDados from '../dados/bolao/apostaDados.js';
 import campeonatoDados from '../dados/bolao/campeonatoDados.js'; 
 import empresaDados from '../dados/bolao/empresaDados.js';
 import jogadorDados from '../dados/bolao/jogadorDados.js';
-import jogoDados from '../dados/bolao/jogadorDados.js';
+import jogoDados from '../dados/bolao/jogoDados.js';
 import pontuacaoDados from '../dados/bolao/pontuacaoDados.js';
 import timeDados from '../dados/bolao/timeDados.js';
 
