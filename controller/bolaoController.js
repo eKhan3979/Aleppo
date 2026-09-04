@@ -266,7 +266,7 @@ export const jogadorChange = (req, res) => {
                 erro: erro.message
             });
         }
-    }
+    })();
 };
 
 export const jogadorGet = (req, res) => {
