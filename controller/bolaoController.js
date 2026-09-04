@@ -133,7 +133,6 @@ export const campeonatoGravar = (req, res) => {
 export const campeonatos = (req, res) => {
     (async () => {
         try {
-            console.log("112");
             const dados = new campeonatoDados();
 
             const rows = await dados.lista();
@@ -249,6 +248,25 @@ export const empresas = (req, res) => {
             });
         }
     })();   
+};
+
+export const jogadorChange = (req, res) => {
+    (async () => {
+        try {
+            const dados = new jogadorDados();
+
+            const idJogador = req.params.idJogador;
+            const senha = req.params.senha;
+
+            const ok = await dados.change(idJogador, senha);
+
+            res.status(200).json(ok);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    }
 };
 
 export const jogadorGet = (req, res) => {

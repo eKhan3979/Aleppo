@@ -4,6 +4,29 @@ class jogadorDados {
 
     constructor() {};
 
+    async change(idJogador, senha) {
+        let conn;
+        let ok = false;
+
+        try {
+            let sql = "Call u258112148_1.SpBJogador_Change (" + idJogador + ",'" + senha + "');";
+
+            conn = await conexao.getConnection();
+
+            await conn.execute(
+                sql
+            );
+
+            let ok = true;
+        } catch (e) {
+            throw e;
+        } finally {
+            if (conn) await conn.release();
+        }
+
+        return ok;
+    }
+
     async get(idEmpresa, nomeApelido) {
         let conn;
 

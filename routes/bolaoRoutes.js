@@ -13,6 +13,7 @@ import {
     empresaGet,
     empresas,
     empresaRanking,
+    jogadorChange,
     jogadorGet,
     jogadorGravar,
     jogadorListaEmpresa,
@@ -49,6 +50,7 @@ router.get('/campeonatos', campeonatos);
 router.get('/empresas', empresas);
 router.get('/empresaGet/:idEmpresa', empresaGet);
 router.get('/empresaRanking/:idEmpresa/:idCampeonato', empresaRanking);
+router.get('/jogadorChange/:idJogador/:senha', jogadorGet);
 router.get('/jogadorGet/:idEmpresa/:nomeApelido', jogadorGet);
 router.get('/jogadorGravar/:idJogador/:idEmpresa/:nomeApelido/:senha/:email', jogadorGravar);
 router.get('/jogadorListaEmpresa/:idEmpresa', jogadorListaEmpresa);
