@@ -4,7 +4,6 @@ import {
     apostasDaRodada,
     apostasJogadorCampeonato,
     apostasJogadorRodada,
-    apostasPontosJogadorRodada,
     apostasRankingCampeonato,
     campeonatoGravar,
     campeonatoTimeInsert,
@@ -19,6 +18,7 @@ import {
     jogadorGravar,
     jogadorListaEmpresa,
     jogadorLogin,
+    jogadorPontosRodada,
     jogoExcluir,
     jogoInsert,
     jogoResultado,
@@ -42,7 +42,6 @@ router.get('/apostaGravar/:idAposta/:idCampeonatoJogo/:idJogador/:golsTimeCasa/:
 router.get('/apostasDaRodada/:idCampeonato/:idJogador/:rodada', apostasDaRodada);
 router.get('/apostasJogadorCampeonato/:idJogador/:idCampeonato', apostasJogadorCampeonato);
 router.get('/apostasJogadorRodada/:idJogador/:idCampeonato/:rodada', apostasJogadorRodada);
-router.get('/apostasPontosJogadorRodada/:idJogador/:idCampeonato/:rodada', apostasPontosJogadorRodada);
 router.get('/apostasRankingCampeonato/:idEmpresa/:idCampeonato', apostasRankingCampeonato);
 router.get('/campeonatoGravar/:idCampeonato/:nome/:ano/:ativo', campeonatoGravar);
 router.get('/campeonatoTimeInsert/:idCampeonato/:idTime', campeonatoTimeInsert);
@@ -57,6 +56,7 @@ router.get('/jogadorGet/:idEmpresa/:nomeApelido', jogadorGet);
 router.get('/jogadorGravar/:idJogador/:idEmpresa/:nomeApelido/:senha/:email', jogadorGravar);
 router.get('/jogadorListaEmpresa/:idEmpresa', jogadorListaEmpresa);
 router.get('/jogadorLogin/:idEmpresa/:nomeApelido/:senha', jogadorLogin);
+router.get('/jogadorPontosRodada/:idJogador/:idCampeonato/:rodada', jogadorPontosRodada);
 router.get('/jogoExcluir/:idCampeonatoJogo', jogoExcluir);
 router.get('/jogoInsert/:idCampeonato/:rodada/:rodadaNome/:yyyy_Mm_Dd/:hh_Mm/:idTimeCasa/:idTimeVisitante', jogoInsert);
 router.get('/jogoResultado/:id/:golsCasa/:golsVisitante/:finalizado', jogoResultado);

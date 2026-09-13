@@ -46,27 +46,6 @@ class apostaDados {
         }
     }
 
-    async apostasPontosJogadorRodada(idJogador, idCampeonato, rodada) {
-        let conn;
-
-        try {
-            let sql = "Call u258112148_1.SpBApostas_JogadorPontosRodada(" + idJogador + "," + idCampeonato + "," + rodada + ");";
-
-            conn = await conexao.getConnection();
-
-            const rows = await conn.query(
-                sql
-            );
-            
-            return rows[0];
-        } catch (e) {
-            throw e;
-        }        
-        finally {
-            if (conn) await conn.release();
-        }
-    }
-
     async apostasRankingCampeonato(idEmpresa, idCampeonato) {
         let conn;
 
@@ -150,6 +129,26 @@ class apostaDados {
         }
     }
 
+    async jogadorPontosRodada(idJogador, idCampeonato, rodada) {
+        let conn;
+
+        try {
+            let sql = "Call u258112148_1.SpBApostas_JogadorPontosRodada(" + idJogador + "," + idCampeonato + "," + rodada + ");";
+console.log(sql);
+            conn = await conexao.getConnection();
+
+            const rows = await conn.query(
+                sql
+            );
+            
+            return rows[0];
+        } catch (e) {
+            throw e;
+        }        
+        finally {
+            if (conn) await conn.release();
+        }
+    }
     async pontosJogador(idJogador, idCampeonato, rodada) {
         let conn;
 
