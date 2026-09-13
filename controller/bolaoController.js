@@ -81,7 +81,7 @@ export const jogadorPontosRodada = (req, res) => {
 console.log(idJogador, idCampeonato, rodada);
             const rows = await dados.jogadorPontosRodada(idJogador, idCampeonato, rodada);
 
-            res.status(200).json("");
+            res.status(200).json(rows);
         } catch (erro) {
             res.status(500).json({
                 erro: erro.message

@@ -130,7 +130,8 @@ class apostaDados {
     }
 
     async jogadorPontosRodada(idJogador, idCampeonato, rodada) {
-        let conn;
+        return "ok";
+        /*let conn;
 
         try {
             let sql = "Call u258112148_1.SpBApostas_JogadorPontosRodada(" + idJogador + "," + idCampeonato + "," + rodada + ");";
@@ -148,6 +149,7 @@ console.log(sql);
         finally {
             if (conn) await conn.release();
         }
+        */
     }
     async pontosJogador(idJogador, idCampeonato, rodada) {
         let conn;
