@@ -4,6 +4,7 @@ import {
     apostasDaRodada,
     apostasJogadorCampeonato,
     apostasJogadorRodada,
+    apostasPontosJogadorRodada,
     apostasRankingCampeonato,
     campeonatoGravar,
     campeonatoTimeInsert,
@@ -41,6 +42,7 @@ router.get('/apostaGravar/:idAposta/:idCampeonatoJogo/:idJogador/:golsTimeCasa/:
 router.get('/apostasDaRodada/:idCampeonato/:idJogador/:rodada', apostasDaRodada);
 router.get('/apostasJogadorCampeonato/:idJogador/:idCampeonato', apostasJogadorCampeonato);
 router.get('/apostasJogadorRodada/:idJogador/:idCampeonato/:rodada', apostasJogadorRodada);
+router.get('/apostasPontosJogadorRodada/:idJogador/:idCampeonato/:rodada', apostasPontosJogadorRodada);
 router.get('/apostasRankingCampeonato/:idEmpresa/:idCampeonato', apostasRankingCampeonato);
 router.get('/campeonatoGravar/:idCampeonato/:nome/:ano/:ativo', campeonatoGravar);
 router.get('/campeonatoTimeInsert/:idCampeonato/:idTime', campeonatoTimeInsert);
