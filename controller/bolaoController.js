@@ -78,7 +78,7 @@ export const jogadorPontosRodada = (req, res) => {
             const idJogador = req.params.idJogador;
             const idCampeonato = req.params.idCampeonato;
             const rodada = req.params.rodada;
-console.log(idJogador, idCampeonato, rodada);
+
             const rows = await dados.jogadorPontosRodada(idJogador, idCampeonato, rodada);
 
             res.status(200).json(rows);
@@ -87,8 +87,8 @@ console.log(idJogador, idCampeonato, rodada);
                 erro: erro.message
             });
         }
-    })
-}
+    })();
+};
 
 export const apostasJogadorRodada = (req, res) => {
     (async () => {

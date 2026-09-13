@@ -130,27 +130,25 @@ class apostaDados {
     }
 
     async jogadorPontosRodada(idJogador, idCampeonato, rodada) {
-        return "ok";
-        /*let conn;
+        let conn;
 
         try {
-            let sql = "Call u258112148_1.SpBApostas_JogadorPontosRodada(" + idJogador + "," + idCampeonato + "," + rodada + ");";
-console.log(sql);
+            let sql = "Call u258112148_1.SpBJogador_PontosRodada(" + idJogador + "," + idCampeonato + "," + rodada + ");";
+
             conn = await conexao.getConnection();
 
             const rows = await conn.query(
                 sql
             );
-            
+
             return rows[0];
         } catch (e) {
             throw e;
-        }        
-        finally {
+        } finally {
             if (conn) await conn.release();
         }
-        */
     }
+
     async pontosJogador(idJogador, idCampeonato, rodada) {
         let conn;
 
