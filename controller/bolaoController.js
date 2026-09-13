@@ -81,7 +81,7 @@ export const apostasPontosJogadorRodada = (req, res) => {
 
             const rows = await dados.apostasPontosJogadorRodada(idJogador, idCampeonato, rodada);
 
-            res.status(200).json)(rows);
+            res.status(200).json(rows);
         } catch (erro) {
             res.status(500).json({
                 erro: erro.message
