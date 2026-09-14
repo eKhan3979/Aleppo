@@ -346,25 +346,6 @@ export const jogadorListaEmpresa = (req, res) => {
     })();
 }
 
-export const jogadorLogin = (req, res) => {
-    (async () => {
-        try {
-            const dados = new jogadorDados();
-            const idEmpresa = req.params.idEmpresa;
-            const nomeApelido = req.params.nomeApelido;
-            const senha = req.params.senha;
-
-            const rows = await dados.login(idEmpresa, nomeApelido, senha);
-
-            res.status(200).json(rows);
-        } catch (erro) {
-            res.status(500).json({
-                erro: erro.message
-            });
-        }
-    })();   
-};
-
 export const jogoExcluir = (req, res) => {
     (async () => {
         try {
@@ -406,6 +387,45 @@ export const jogoInsert = (req,  res) => {
         }
     })();
 }
+
+export const jogadorLogin = (req, res) => {
+    (async () => {
+        try {
+            const dados = new jogadorDados();
+            const idEmpresa = req.params.idEmpresa;
+            const nomeApelido = req.params.nomeApelido;
+            const senha = req.params.senha;
+
+            const rows = await dados.login(idEmpresa, nomeApelido, senha);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
+export const jogadorLoginManager = (req, res) => {
+    (async () => {
+        try {
+            const dados = new jogadorDados();
+
+            const email = req.params.email;
+            const senha = req.params.senha;
+
+            const rows = await dados.loginManager(email, senha);
+
+            res.status(200).json(rows);
+        } catch (erro) {
+            res.status(500).json({
+                erro: erro.message
+            });
+        }
+    })();   
+};
+
 
 export const jogoResultado = (req, res) => {
     (async () => {

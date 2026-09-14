@@ -89,11 +89,11 @@ class jogadorDados {
         }
     }
 
-    async loginToken(email, senha) {
+    async login(idEmpresa, nomeApelido, senha) {
         let conn;
 
         try {
-            let sql = "Call u258112148_1.SpBLogin('" + email + "','" + senha + "');";
+            let sql = "Call u258112148_1.SpBJogador_Login(" + idEmpresa + ",'" + nomeApelido + "','" + senha + "');";
 
             conn = await conexao.getConnection();
 
@@ -110,11 +110,33 @@ class jogadorDados {
         }
     }
 
-    async login(idEmpresa, nomeApelido, senha) {
+
+    async loginManager(email, senha) {
         let conn;
 
         try {
-            let sql = "Call u258112148_1.SpBJogador_Login(" + idEmpresa + ",'" + nomeApelido + "','" + senha + "');";
+            let sql = "Call u258112148_1.SpBLogin_Manager('" + email + "','" + senha + "');";
+
+            conn = await conexao.getConnection();
+
+            const rows = await conn.query(
+                sql
+            );
+
+            return rows[0];
+        } catch (e) {
+            throw e;
+        }        
+        finally {
+            if (conn) await conn.release();
+        }
+    }
+
+    async loginToken(email, senha) {
+        let conn;
+
+        try {
+            let sql = "Call u258112148_1.SpBLogin('" + email + "','" + senha + "');";
 
             conn = await conexao.getConnection();
 

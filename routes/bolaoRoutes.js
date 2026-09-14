@@ -18,6 +18,7 @@ import {
     jogadorGravar,
     jogadorListaEmpresa,
     jogadorLogin,
+    jogadorLoginManager,
     jogadorPontosRodada,
     jogoExcluir,
     jogoInsert,
@@ -56,6 +57,7 @@ router.get('/jogadorGet/:idEmpresa/:nomeApelido', jogadorGet);
 router.get('/jogadorGravar/:idJogador/:idEmpresa/:nomeApelido/:senha/:email', jogadorGravar);
 router.get('/jogadorListaEmpresa/:idEmpresa', jogadorListaEmpresa);
 router.get('/jogadorLogin/:idEmpresa/:nomeApelido/:senha', jogadorLogin);
+router.get('/jogadorLoginManager/:email/:senha', jogadorLoginManager);
 router.get('/jogadorPontosRodada/:idJogador/:idCampeonato/:rodada', jogadorPontosRodada);
 router.get('/jogoExcluir/:idCampeonatoJogo', jogoExcluir);
 router.get('/jogoInsert/:idCampeonato/:rodada/:rodadaNome/:yyyy_Mm_Dd/:hh_Mm/:idTimeCasa/:idTimeVisitante', jogoInsert);
